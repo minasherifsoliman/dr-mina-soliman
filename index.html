@@ -1,0 +1,3645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Dr. Mina Soliman" />
+  <meta name="theme-color" id="meta-theme-color" content="#162B26" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta property="og:title" content="Dr. Mina Soliman — Emotion Wheel &amp; Mind Sanctuary" />
+  <meta property="og:description" content="Clinical Emotion Wheel Journal &amp; Guided Meditation Sanctuary by Psychiatrist Dr. Mina Soliman, MD. Designed for iPhone, iPad, and Mac." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Dr. Mina Soliman — Psychiatry" />
+  <meta property="og:image" content="icons/icon-512.png" />
+  <meta property="og:image:width" content="512" />
+  <meta property="og:image:height" content="512" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Dr. Mina Soliman — Emotion Wheel &amp; Mind Sanctuary" />
+  <meta name="twitter:description" content="Clinical Emotion Wheel Journal &amp; Guided Meditation Sanctuary by Dr. Mina Soliman, MD." />
+  <meta name="twitter:image" content="icons/icon-512.png" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png" id="apple-touch-icon-link" />
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="icons/icon-512.png" />
+  <title>Dr. Mina Soliman — Emotion Wheel &amp; Mind Sanctuary</title>
+  <meta name="description" content="Clinical emotion logging based on the Wheel of Emotions and guided therapeutic meditation by Dr. Mina Soliman, MD." />
+  <style>
+    :root {
+      --bg-primary: #FBF9F5;
+      --bg-secondary: #F3EFE6;
+      --bg-card: #FFFFFF;
+      --bg-subtle: #EAE4D7;
+      --text-primary: #182622;
+      --text-secondary: #4A5B55;
+      --text-muted: #768780;
+      --accent-primary: #1F4E43;
+      --accent-secondary: #2E6F5E;
+      --accent-warm: #C88A36;
+      --accent-soft: #E3EFEA;
+      --border-color: #E2DDD2;
+      --whatsapp-green: #1E7E48;
+      --emergency-red: #B83B2A;
+      --nav-glass: rgba(255, 255, 255, 0.88);
+      --shadow-sm: 0 2px 8px rgba(24, 38, 34, 0.05);
+      --shadow-md: 0 8px 24px rgba(24, 38, 34, 0.08);
+      --shadow-lg: 0 16px 38px rgba(24, 38, 34, 0.12);
+      --radius-sm: 10px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --font-serif: "New York", Georgia, 'Times New Roman', serif;
+      --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    [data-theme="dark"] {
+      --bg-primary: #101917;
+      --bg-secondary: #162320;
+      --bg-card: #1C2C28;
+      --bg-subtle: #243833;
+      --text-primary: #F2EFE9;
+      --text-secondary: #B8C7C1;
+      --text-muted: #7E948C;
+      --accent-primary: #4FA38B;
+      --accent-secondary: #3B8A73;
+      --accent-warm: #E0A44E;
+      --accent-soft: #1F3933;
+      --border-color: #2B423C;
+      --whatsapp-green: #259B58;
+      --emergency-red: #D9534F;
+      --nav-glass: rgba(28, 44, 40, 0.88);
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.25);
+      --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.35);
+      --shadow-lg: 0 16px 38px rgba(0, 0, 0, 0.45);
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    button, a, input, select, textarea, .wheel-wedge, .program-card, .grounding-step {
+      touch-action: manipulation;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      max-width: 100%;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-size: 15px;
+      line-height: 1.5;
+      min-height: 100vh;
+      overflow-x: hidden;
+      overscroll-behavior-y: contain;
+      -webkit-overflow-scrolling: touch;
+      -webkit-text-size-adjust: 100%;
+      transition: background-color 0.25s ease, color 0.25s ease;
+    }
+
+    /* App Shell Layout */
+    .app-shell {
+      width: 100%;
+      max-width: 960px;
+      margin: 0 auto;
+      padding-bottom: calc(96px + env(safe-area-inset-bottom, 0px));
+      padding-left: env(safe-area-inset-left, 0px);
+      padding-right: env(safe-area-inset-right, 0px);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Top Clinical Sanctuary Header (with Apple iOS Notch / Dynamic Island Safe Area) */
+    .app-header {
+      background: linear-gradient(135deg, rgba(22, 43, 38, 0.96) 0%, rgba(31, 69, 60, 0.96) 100%);
+      backdrop-filter: saturate(180%) blur(16px);
+      -webkit-backdrop-filter: saturate(180%) blur(16px);
+      color: #F7F4EC;
+      padding: calc(14px + env(safe-area-inset-top, 0px)) 16px 14px;
+      border-bottom: 1px solid rgba(212, 175, 106, 0.25);
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      box-shadow: 0 4px 18px rgba(16, 25, 23, 0.18);
+    }
+
+    .header-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .brand-emblem {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1.5px solid rgba(229, 179, 82, 0.55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .brand-title {
+      margin: 0;
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      color: #FAF7F0;
+      line-height: 1.2;
+    }
+
+    .brand-subtitle {
+      margin: 2px 0 0;
+      font-size: 0.72rem;
+      color: #C7D6D0;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      flex-wrap: wrap;
+    }
+
+    .icon-btn {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: #F7F4EC;
+      height: 34px;
+      padding: 0 10px;
+      border-radius: 9px;
+      font-size: 0.76rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.18s ease;
+    }
+
+    .icon-btn:hover {
+      background: rgba(255, 255, 255, 0.18);
+    }
+
+    .icon-btn.whatsapp-header-btn {
+      background: rgba(37, 211, 102, 0.18);
+      border-color: rgba(37, 211, 102, 0.45);
+      color: #E8FFF0;
+    }
+
+    /* Main Content Container */
+    .main-content {
+      padding: 16px 14px 28px;
+      flex: 1;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .tab-pane {
+      display: none;
+      width: 100%;
+      max-width: 100%;
+      animation: fadeIn 0.24s ease;
+    }
+
+    .tab-pane.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Patient Greeting & Direct Contact Bar */
+    .welcome-strip {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 14px 16px;
+      margin-bottom: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .welcome-top-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .welcome-text h2 {
+      margin: 0;
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .welcome-text p {
+      margin: 3px 0 0;
+      font-size: 0.81rem;
+      color: var(--text-secondary);
+    }
+
+    .streak-pills {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .stat-pill {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      padding: 5px 11px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .clinic-contact-strip {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      padding-top: 10px;
+      border-top: 1px solid var(--border-color);
+    }
+
+    @media (max-width: 600px) {
+      .clinic-contact-strip {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .contact-action-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 0.15s ease, opacity 0.15s ease;
+      text-align: center;
+    }
+
+    .contact-action-btn:hover {
+      transform: translateY(-1px);
+      opacity: 0.95;
+    }
+
+    .contact-action-btn.book-btn {
+      background: var(--whatsapp-green);
+      color: #FFFFFF;
+      border: 1px solid transparent;
+    }
+
+    .contact-action-btn.emergency-btn {
+      background: rgba(184, 59, 42, 0.1);
+      color: var(--emergency-red);
+      border: 1.5px solid var(--emergency-red);
+    }
+
+    /* Grid Layout for Wheel + Clinical Check-in (minmax(0, 1fr) prevents horizontal blowout) */
+    .clinical-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+      gap: 18px;
+      align-items: start;
+      width: 100%;
+    }
+
+    @media (max-width: 820px) {
+      .clinical-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 16px;
+      min-width: 0;
+      width: 100%;
+      max-width: 100%;
+      overflow: hidden;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .card-title {
+      margin: 0;
+      font-family: var(--font-serif);
+      font-size: 1.06rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .card-subtitle {
+      margin: 3px 0 0;
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+
+    /* Wheel of Emotions Container — Strictly Centered & Responsive */
+    .wheel-wrapper {
+      width: 100%;
+      max-width: 420px;
+      margin: 6px auto 12px;
+      padding: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #emotion-wheel-svg {
+      display: block;
+      width: 100%;
+      max-width: 400px;
+      height: auto;
+      aspect-ratio: 1 / 1;
+      margin: 0 auto;
+      user-select: none;
+      filter: drop-shadow(0 4px 14px rgba(24, 38, 34, 0.1));
+    }
+
+    .wheel-wedge {
+      cursor: pointer;
+      transition: opacity 0.18s ease, filter 0.18s ease, stroke-width 0.18s ease;
+    }
+
+    .wheel-wedge:hover {
+      filter: brightness(1.07);
+    }
+
+    .wheel-wedge.selected {
+      stroke: var(--text-primary);
+      stroke-width: 2.4px;
+      filter: brightness(1.08);
+    }
+
+    .wheel-label {
+      pointer-events: none;
+      font-family: var(--font-sans);
+      font-weight: 600;
+      fill: #FFFFFF;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
+    }
+
+    /* Breadcrumb / Selected Emotion Banner */
+    .selection-banner {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 11px 13px;
+      margin-top: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .emotion-path {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      flex-wrap: wrap;
+      font-size: 0.86rem;
+      font-weight: 600;
+    }
+
+    .emotion-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      display: inline-block;
+      flex-shrink: 0;
+    }
+
+    .path-arrow {
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+
+    /* Accessible Drilldown Ring Pills */
+    .drilldown-section {
+      margin-top: 14px;
+      border-top: 1px solid var(--border-color);
+      padding-top: 12px;
+    }
+
+    .ring-tier-label {
+      font-size: 0.73rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      margin: 8px 0 6px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .emotion-chip {
+      border: 1.5px solid var(--border-color);
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      padding: 6px 11px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.16s ease;
+    }
+
+    .emotion-chip:hover {
+      transform: translateY(-1px);
+      border-color: var(--accent-primary);
+    }
+
+    .emotion-chip.active {
+      color: #FFFFFF;
+      border-color: transparent;
+      box-shadow: 0 3px 9px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Clinical Form Controls */
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 4px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 7px;
+    }
+
+    .form-label span.hint {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    /* SUDS Intensity Slider */
+    .intensity-box {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+    }
+
+    .intensity-readout {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 6px;
+    }
+
+    .intensity-score {
+      font-size: 1.3rem;
+      font-weight: 700;
+      font-family: var(--font-serif);
+      color: var(--accent-primary);
+    }
+
+    .intensity-desc {
+      font-size: 0.79rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+
+    input[type="range"].clinical-slider {
+      width: 100%;
+      accent-color: var(--accent-primary);
+      height: 6px;
+      cursor: pointer;
+    }
+
+    .scale-anchors {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* Tag Multi-Select Buttons */
+    .tag-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .tag-btn {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      padding: 6px 11px;
+      border-radius: 9px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .tag-btn.selected {
+      background: var(--accent-primary);
+      color: #FFFFFF;
+      border-color: var(--accent-primary);
+      font-weight: 600;
+    }
+
+    .prompt-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 8px;
+    }
+
+    .prompt-pill {
+      background: var(--accent-soft);
+      color: var(--accent-primary);
+      border: 1px solid transparent;
+      padding: 5px 10px;
+      border-radius: 999px;
+      font-size: 0.73rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    textarea.clinical-textarea, input.clinical-input {
+      width: 100%;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 11px 13px;
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-size: 16px;
+      resize: vertical;
+      outline: none;
+      -webkit-appearance: none;
+      appearance: none;
+      transition: border-color 0.18s ease;
+    }
+
+    textarea.clinical-textarea:focus, input.clinical-input:focus {
+      border-color: var(--accent-primary);
+    }
+
+    .primary-btn {
+      width: 100%;
+      background: linear-gradient(135deg, #1F4E43 0%, #2B6A5B 100%);
+      color: #FFFFFF;
+      border: none;
+      border-radius: var(--radius-sm);
+      padding: 13px 18px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 4px 14px rgba(31, 78, 67, 0.25);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      text-decoration: none;
+    }
+
+    .primary-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(31, 78, 67, 0.32);
+    }
+
+    .secondary-btn {
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 9px 14px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      text-decoration: none;
+      transition: all 0.15s ease;
+    }
+
+    .secondary-btn:hover {
+      border-color: var(--accent-primary);
+    }
+
+    /* Post-Log Clinical Recommendation Box */
+    .rx-recommendation {
+      margin-top: 14px;
+      background: var(--accent-soft);
+      border: 1px solid var(--accent-primary);
+      border-radius: var(--radius-sm);
+      padding: 14px;
+      display: none;
+    }
+
+    .rx-recommendation.visible {
+      display: block;
+      animation: fadeIn 0.25s ease;
+    }
+
+    /* MEDITATION SANCTUARY TAB */
+    .meditation-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+      gap: 18px;
+      align-items: start;
+      width: 100%;
+    }
+
+    @media (max-width: 820px) {
+      .meditation-layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .sanctuary-stage {
+      background: linear-gradient(160deg, #132621 0%, #1D3B33 55%, #24473E 100%);
+      color: #F7F4EC;
+      border-radius: var(--radius-lg);
+      padding: 24px 18px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      border: 1px solid rgba(212, 175, 106, 0.28);
+      min-width: 0;
+    }
+
+    .session-badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(229, 179, 82, 0.4);
+      color: #F3D393;
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 0.74rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .stage-title {
+      margin: 0;
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      color: #FAF7F0;
+    }
+
+    .stage-desc {
+      margin: 4px auto 16px;
+      font-size: 0.83rem;
+      color: #C5D6CF;
+      max-width: 420px;
+    }
+
+    /* Breathing Orb */
+    .orb-viewport {
+      width: 230px;
+      height: 230px;
+      max-width: 100%;
+      margin: 14px auto 18px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .orb-ring-outer {
+      position: absolute;
+      width: 210px;
+      height: 210px;
+      border-radius: 50%;
+      border: 1.5px dashed rgba(229, 179, 82, 0.35);
+      transition: transform 0.3s ease;
+    }
+
+    .orb-halo {
+      position: absolute;
+      width: 146px;
+      height: 146px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(114, 196, 168, 0.35) 0%, rgba(46, 111, 94, 0.05) 75%);
+      transform: scale(1);
+      transition: transform 0.15s linear;
+    }
+
+    .orb-core {
+      position: relative;
+      width: 128px;
+      height: 128px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 30%, #68B89E 0%, #2C6E5B 65%, #194236 100%);
+      border: 2px solid rgba(243, 211, 147, 0.65);
+      box-shadow: 0 0 32px rgba(104, 184, 158, 0.35);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transform: scale(1);
+      transition: transform 0.12s linear, background 0.5s ease;
+      z-index: 2;
+    }
+
+    .orb-phase-text {
+      font-family: var(--font-serif);
+      font-size: 1.02rem;
+      font-weight: 600;
+      color: #FFFFFF;
+      letter-spacing: 0.02em;
+    }
+
+    .orb-phase-timer {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #F3D393;
+      font-variant-numeric: tabular-nums;
+      margin-top: 2px;
+    }
+
+    .guided-prompt-box {
+      min-height: 48px;
+      margin: 10px auto 16px;
+      padding: 10px 14px;
+      background: rgba(0, 0, 0, 0.22);
+      border-radius: var(--radius-sm);
+      font-style: italic;
+      font-size: 0.86rem;
+      color: #EAE5D9;
+      max-width: 440px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .session-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .med-btn-main {
+      background: #E5B352;
+      color: #14241F;
+      border: none;
+      padding: 11px 22px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 14px rgba(229, 179, 82, 0.35);
+    }
+
+    .med-btn-sub {
+      background: rgba(255, 255, 255, 0.12);
+      color: #FAF7F0;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 10px 15px;
+      border-radius: 999px;
+      font-size: 0.81rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .duration-pills {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+
+    .dur-pill {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: #D2E0DA;
+      padding: 5px 11px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .dur-pill.active {
+      background: rgba(229, 179, 82, 0.25);
+      border-color: #E5B352;
+      color: #FFF8E7;
+    }
+
+    /* Program List Cards */
+    .program-list {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .program-card {
+      background: var(--bg-secondary);
+      border: 1.5px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 11px 13px;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.16s ease;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .program-card:hover {
+      border-color: var(--accent-primary);
+    }
+
+    .program-card.active {
+      background: var(--accent-soft);
+      border-color: var(--accent-primary);
+    }
+
+    .program-card h4 {
+      margin: 0;
+      font-size: 0.89rem;
+      color: var(--text-primary);
+    }
+
+    .program-card p {
+      margin: 2px 0 0;
+      font-size: 0.76rem;
+      color: var(--text-secondary);
+    }
+
+    .program-cadence {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--accent-primary);
+      background: var(--bg-card);
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid var(--border-color);
+      white-space: nowrap;
+    }
+
+    /* Audio Mixer Sliders */
+    .mixer-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+      font-size: 0.82rem;
+    }
+
+    .mixer-row label {
+      font-weight: 600;
+      color: var(--text-secondary);
+      min-width: 130px;
+    }
+
+    /* HISTORY & CLINICAL REPORT TAB */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    @media (max-width: 680px) {
+      .kpi-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .kpi-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 13px 14px;
+      box-shadow: var(--shadow-sm);
+      min-width: 0;
+    }
+
+    .kpi-label {
+      font-size: 0.73rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .kpi-value {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-top: 3px;
+    }
+
+    .kpi-sub {
+      font-size: 0.74rem;
+      color: var(--text-secondary);
+      margin-top: 2px;
+    }
+
+    .log-entry-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-left: 5px solid var(--accent-primary);
+      border-radius: var(--radius-sm);
+      padding: 13px 15px;
+      margin-bottom: 10px;
+    }
+
+    .log-entry-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .log-emotion-title {
+      font-weight: 700;
+      font-size: 0.93rem;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      flex-wrap: wrap;
+    }
+
+    .log-time {
+      font-size: 0.74rem;
+      color: var(--text-muted);
+    }
+
+    .log-meta-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .mini-tag {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 0.73rem;
+      color: var(--text-secondary);
+    }
+
+    .log-note {
+      margin: 8px 0 0;
+      font-size: 0.84rem;
+      color: var(--text-primary);
+      background: var(--bg-card);
+      padding: 9px 11px;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+      word-break: break-word;
+    }
+
+    /* Bottom Navigation Bar (Frosted iOS Glass Style) */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--nav-glass);
+      backdrop-filter: saturate(180%) blur(18px);
+      -webkit-backdrop-filter: saturate(180%) blur(18px);
+      border-top: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-around;
+      padding: 7px 8px calc(7px + env(safe-area-inset-bottom, 0px));
+      z-index: 50;
+      box-shadow: 0 -4px 18px rgba(0, 0, 0, 0.06);
+    }
+
+    .nav-item {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+      padding: 6px 12px;
+      border-radius: 12px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.16s ease;
+    }
+
+    .nav-item svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .nav-item.active {
+      color: var(--accent-primary);
+      background: var(--accent-soft);
+    }
+
+    /* Toast Notification */
+    .toast-banner {
+      position: fixed;
+      bottom: calc(82px + env(safe-area-inset-bottom, 0px));
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: #162B26;
+      color: #FAF7F0;
+      border: 1px solid #D4AF6A;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      box-shadow: var(--shadow-lg);
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.22s ease;
+      z-index: 100;
+      max-width: 90vw;
+      text-align: center;
+    }
+
+    .toast-banner.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* Grounding Stepper */
+    .grounding-step {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 11px 13px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      margin-bottom: 8px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .grounding-step.done {
+      border-color: var(--accent-primary);
+      background: var(--accent-soft);
+    }
+
+    .step-num {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--accent-primary);
+      color: #FFFFFF;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .report-modal-box {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 14px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.77rem;
+      white-space: pre-wrap;
+      word-break: break-word;
+      max-height: 290px;
+      overflow-y: auto;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+    }
+
+    .dr-contact-card {
+      background: var(--bg-secondary);
+      border: 1.5px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 14px;
+      margin-bottom: 12px;
+    }
+
+    /* Apple Smart Home-Screen Banner */
+    .apple-install-banner {
+      background: linear-gradient(135deg, #162B26 0%, #244C42 100%);
+      color: #FAF7F0;
+      border: 1px solid rgba(229, 179, 82, 0.45);
+      border-radius: var(--radius-md);
+      padding: 12px 14px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .apple-install-banner.hidden {
+      display: none;
+    }
+
+    /* Apple iOS Add-to-Home-Screen Modal */
+    .ios-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(16, 25, 23, 0.72);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      z-index: 120;
+    }
+
+    .ios-modal-backdrop.open {
+      display: flex;
+      animation: fadeIn 0.2s ease;
+    }
+
+    .ios-modal-card {
+      background: var(--bg-card);
+      color: var(--text-primary);
+      border: 1.5px solid var(--border-color);
+      border-radius: var(--radius-md);
+      max-width: 440px;
+      width: 100%;
+      padding: 20px;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .ios-step-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 12px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      margin-bottom: 9px;
+      font-size: 0.84rem;
+    }
+
+    .ios-step-badge {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--accent-primary);
+      color: #FFFFFF;
+      font-weight: 700;
+      font-size: 0.78rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <!-- Top Clinical Header -->
+    <header class="app-header">
+      <div class="header-top">
+        <div class="brand-group">
+          <div class="brand-emblem" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 64 64" fill="none">
+              <circle cx="32" cy="32" r="28" stroke="#E5B352" stroke-width="2.5" stroke-dasharray="4 3" />
+              <path d="M32 10 C38 20, 46 24, 32 46 C18 24, 26 20, 32 10 Z" fill="#62A87C" opacity="0.88" />
+              <path d="M14 26 C24 26, 30 34, 32 46 C20 42, 14 34, 14 26 Z" fill="#E5B352" opacity="0.85" />
+              <path d="M50 26 C40 26, 34 34, 32 46 C44 42, 50 34, 50 26 Z" fill="#5992BD" opacity="0.85" />
+              <circle cx="32" cy="46" r="4" fill="#FAF7F0" />
+            </svg>
+          </div>
+          <div>
+            <h1 class="brand-title">Dr. Mina Soliman</h1>
+            <p class="brand-subtitle">Psychiatry · Emotion Wheel &amp; Mind Sanctuary</p>
+          </div>
+        </div>
+        <div class="header-actions">
+          <a href="https://wa.me/201026281035" target="_blank" rel="noopener" class="icon-btn whatsapp-header-btn" data-wa-url="https://wa.me/201026281035" title="Book a Session with Dr. Mina Soliman on WhatsApp">
+            <span>📅 Book Session</span>
+          </a>
+          <button type="button" id="btn-ios-install" class="icon-btn" title="Save to iPhone / iPad Home Screen">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
+              <polyline points="16 6 12 2 8 6"/>
+              <line x1="12" y1="2" x2="12" y2="15"/>
+            </svg>
+            <span>Add App</span>
+          </button>
+          <button type="button" id="btn-quick-report" class="icon-btn" title="Prepare Session Summary for Dr. Soliman">
+            <span>📋 Report</span>
+          </button>
+          <button type="button" id="btn-theme-toggle" class="icon-btn" title="Switch Light / Dark Sanctuary Theme" aria-label="Toggle Theme">
+            <span id="theme-icon-label">☾ Dark</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Tab Views -->
+    <main class="main-content">
+      <!-- Apple iPhone, iPad & Mac Quick Install Banner (hidden automatically when installed or dismissed) -->
+      <div id="apple-install-banner" class="apple-install-banner">
+        <div style="display:flex; align-items:center; gap:10px; min-width:0; flex:1;">
+          <span style="display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px; border-radius:9px; background:rgba(229, 179, 82, 0.16); color:#E5B352; flex-shrink:0;" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="6" y="2" width="12" height="20" rx="2.5" ry="2.5"/>
+              <line x1="12" y1="18" x2="12.01" y2="18"/>
+            </svg>
+          </span>
+          <div style="font-size:0.8rem; line-height:1.35;">
+            <strong>On iPhone, iPad &amp; Mac:</strong> Save <strong>Dr. Mina Soliman</strong> to your Home Screen or Dock for full-screen &amp; offline access.
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:6px;">
+          <button type="button" id="btn-banner-ios-how" style="background:#E5B352; color:#14241F; border:none; border-radius:999px; padding:6px 12px; font-size:0.76rem; font-weight:700; cursor:pointer;">Add to iPhone / Mac</button>
+          <button type="button" id="btn-banner-ios-dismiss" aria-label="Dismiss" style="background:rgba(255,255,255,0.12); color:#FAF7F0; border:none; border-radius:999px; padding:5px 9px; font-size:0.74rem; cursor:pointer;">✕</button>
+        </div>
+      </div>
+
+      <!-- Patient Welcome Strip + Direct Booking & Emergency Links for Dr. Mina Soliman -->
+      <section class="welcome-strip">
+        <div class="welcome-top-row">
+          <div class="welcome-text">
+            <h2 id="patient-greeting">Welcome to Dr. Mina Soliman's Patient Sanctuary</h2>
+            <p>Notice what you are feeling without judgment, log your emotional state, and restore calm through breath.</p>
+          </div>
+          <div class="streak-pills">
+            <span class="stat-pill" id="header-stat-logs">0 Check-Ins</span>
+            <span class="stat-pill" id="header-stat-med">0 Min Meditated</span>
+          </div>
+        </div>
+        <div class="clinic-contact-strip">
+          <a href="https://wa.me/201026281035" target="_blank" rel="noopener" class="contact-action-btn book-btn" data-wa-url="https://wa.me/201026281035">
+            <span>📅 Book a Session with Dr. Mina Soliman (WhatsApp)</span>
+          </a>
+          <a href="https://wa.me/201026281035" target="_blank" rel="noopener" class="contact-action-btn emergency-btn" data-wa-url="https://wa.me/201026281035">
+            <span>🚨 Emergency Contact: Dr. Mina Soliman (WhatsApp)</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- TAB 1: WHEEL OF EMOTIONS & CLINICAL CHECK-IN -->
+      <section id="tab-wheel" class="tab-pane active" aria-label="Wheel of Emotions Check-In">
+        <div class="clinical-grid">
+          <!-- Left Column: Interactive 3-Ring Wheel of Emotions -->
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <h3 class="card-title">Interactive Wheel of Emotions</h3>
+                <p class="card-subtitle">Tap any segment on the inner, middle, or outer ring—or use the guided tiers below.</p>
+              </div>
+              <button type="button" id="btn-reset-wheel" class="secondary-btn" style="padding: 6px 10px; font-size: 0.75rem;">Reset</button>
+            </div>
+
+            <!-- Interactive Centered SVG Wheel (Positive 0..540 ViewBox with 270,270 Center) -->
+            <div class="wheel-wrapper">
+              <svg id="emotion-wheel-svg" width="540" height="540" viewBox="0 0 540 540" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Three-ring interactive Wheel of Emotions"></svg>
+            </div>
+
+            <!-- Current Emotion Path Banner -->
+            <div class="selection-banner">
+              <div class="emotion-path" id="selected-emotion-breadcrumb">
+                <span class="emotion-dot" id="selected-emotion-dot" style="background: #3B8A63;"></span>
+                <span id="breadcrumb-core">Trust</span>
+                <span class="path-arrow">→</span>
+                <span id="breadcrumb-secondary">Safe</span>
+                <span class="path-arrow">→</span>
+                <span id="breadcrumb-tertiary">Grounded</span>
+              </div>
+              <span style="font-size: 0.74rem; color: var(--text-muted);" id="selected-clinical-family">Core Affect</span>
+            </div>
+
+            <!-- Synchronized 3-Tier Pill Selector for Effortless Mobile Access -->
+            <div class="drilldown-section">
+              <div class="ring-tier-label">
+                <span>1. Core Emotion (Inner Ring)</span>
+                <span id="core-count-hint">8 Core States</span>
+              </div>
+              <div class="chip-row" id="tier1-chips"></div>
+
+              <div class="ring-tier-label">
+                <span>2. Nuanced Emotion (Middle Ring)</span>
+                <span>Tap to refine</span>
+              </div>
+              <div class="chip-row" id="tier2-chips"></div>
+
+              <div class="ring-tier-label">
+                <span>3. Specific Clinical Feeling (Outer Ring)</span>
+                <span>Pinpoint feeling</span>
+              </div>
+              <div class="chip-row" id="tier3-chips"></div>
+            </div>
+          </div>
+
+          <!-- Right Column: Psychiatric Check-In Details -->
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <h3 class="card-title">Clinical Emotion Log</h3>
+                <p class="card-subtitle">Record intensity, somatic body cues, and context for your sessions with Dr. Soliman.</p>
+              </div>
+            </div>
+
+            <!-- Intensity Slider (SUDS 1-10) -->
+            <div class="form-group">
+              <div class="form-label">
+                <span>Emotional Intensity (SUDS Scale)</span>
+                <span class="hint">1 = Subtle · 10 = Overwhelming</span>
+              </div>
+              <div class="intensity-box">
+                <div class="intensity-readout">
+                  <span class="intensity-score" id="intensity-val-display">5 / 10</span>
+                  <span class="intensity-desc" id="intensity-text-anchor">Moderate — Noticeable &amp; Present</span>
+                </div>
+                <input type="range" id="input-intensity" class="clinical-slider" min="1" max="10" value="5" />
+                <div class="scale-anchors">
+                  <span>1 Mild</span>
+                  <span>3 Low</span>
+                  <span>5 Moderate</span>
+                  <span>7 Strong</span>
+                  <span>10 Acute</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Co-occurring Secondary Emotions -->
+            <div class="form-group">
+              <div class="form-label">
+                <span>Co-Occurring Emotions (Optional)</span>
+                <span class="hint">Mixed affect</span>
+              </div>
+              <div class="tag-grid" id="co-emotion-tags"></div>
+            </div>
+
+            <!-- Somatic Body Sensations -->
+            <div class="form-group">
+              <div class="form-label">
+                <span>Where do you feel this in your body?</span>
+                <span class="hint">Somatic check</span>
+              </div>
+              <div class="tag-grid" id="somatic-tags"></div>
+            </div>
+
+            <!-- Context & Triggers -->
+            <div class="form-group">
+              <div class="form-label">
+                <span>Context or Trigger</span>
+                <span class="hint">Select any that apply</span>
+              </div>
+              <div class="tag-grid" id="trigger-tags"></div>
+            </div>
+
+            <!-- Reflection Note with Dr. Soliman Prompts -->
+            <div class="form-group">
+              <div class="form-label">
+                <span>Reflection &amp; Thoughts</span>
+                <span class="hint">Tap a prompt to insert</span>
+              </div>
+              <div class="prompt-pills">
+                <button type="button" class="prompt-pill" data-prompt="What happened right before this emotion: ">+ Trigger Event</button>
+                <button type="button" class="prompt-pill" data-prompt="The thought running through my mind is: ">+ Automatic Thought</button>
+                <button type="button" class="prompt-pill" data-prompt="What I need most right now to feel safe/supported: ">+ What I Need Now</button>
+                <button type="button" class="prompt-pill" data-prompt="Note for Dr. Mina Soliman: ">+ Note for Dr. Soliman</button>
+              </div>
+              <textarea id="input-journal-note" class="clinical-textarea" rows="3" placeholder="Write freely about what you are experiencing, any thoughts present, or notes to discuss with Dr. Mina Soliman..."></textarea>
+            </div>
+
+            <button type="button" id="btn-save-emotion" class="primary-btn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M20 6L9 17l-5-5"/>
+              </svg>
+              <span>Log Emotion to Journal</span>
+            </button>
+
+            <!-- Tailored Therapeutic Recommendation Card -->
+            <div id="rx-recommendation-box" class="rx-recommendation">
+              <div style="font-weight: 700; font-size: 0.88rem; color: var(--accent-primary); margin-bottom: 4px;" id="rx-title">
+                Dr. Mina Soliman's Recommended Practice
+              </div>
+              <p style="margin: 0 0 10px; font-size: 0.82rem; color: var(--text-secondary);" id="rx-body">
+                Based on your check-in, a 4-7-8 Parasympathetic Breath session can help gently regulate your nervous system.
+              </p>
+              <button type="button" id="btn-launch-rx-meditation" class="secondary-btn" style="width: 100%; background: var(--bg-card);">
+                Start Recommended Meditation Now →
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 2: MEDITATION & BREATHWORK SANCTUARY -->
+      <section id="tab-meditation" class="tab-pane" aria-label="Dr. Mina Soliman Meditation Sanctuary">
+        <div class="meditation-layout">
+          <!-- Left: Interactive Breathing Orb & Guided Stage -->
+          <div class="sanctuary-stage">
+            <span class="session-badge" id="med-stage-badge">Dr. Mina Soliman · Guided Breath &amp; Mindfulness</span>
+            <h3 class="stage-title" id="med-stage-title">4-7-8 Parasympathetic Reset</h3>
+            <p class="stage-desc" id="med-stage-desc">Activates the vagus nerve to quiet acute anxiety, racing thoughts, and somatic tension.</p>
+
+            <!-- Duration Selector -->
+            <div class="duration-pills" id="duration-selector">
+              <button type="button" class="dur-pill" data-seconds="120">2 Min</button>
+              <button type="button" class="dur-pill active" data-seconds="300">5 Min</button>
+              <button type="button" class="dur-pill" data-seconds="600">10 Min</button>
+              <button type="button" class="dur-pill" data-seconds="900">15 Min</button>
+            </div>
+
+            <!-- Animated Breathing Orb -->
+            <div class="orb-viewport">
+              <div class="orb-ring-outer" id="orb-outer"></div>
+              <div class="orb-halo" id="orb-halo"></div>
+              <div class="orb-core" id="orb-core">
+                <span class="orb-phase-text" id="orb-phase-label">Ready</span>
+                <span class="orb-phase-timer" id="orb-phase-timer">05:00</span>
+              </div>
+            </div>
+
+            <!-- Live Guided Prompt from Dr. Mina Soliman -->
+            <div class="guided-prompt-box" id="med-guided-prompt">
+              "Settle your shoulders. Whenever you are ready, press Begin Sanctuary Session."
+            </div>
+
+            <div style="font-size: 0.78rem; color: #C5D6CF; margin-bottom: 12px;">
+              Session Remaining: <strong id="med-total-remaining">05:00</strong> · Completed Breath Cycles: <strong id="med-cycle-count">0</strong>
+            </div>
+
+            <div class="session-controls">
+              <button type="button" id="btn-med-toggle" class="med-btn-main">
+                <span id="btn-med-toggle-label">▶ Begin Sanctuary Session</span>
+              </button>
+              <button type="button" id="btn-med-chime-test" class="med-btn-sub" title="Ring Tibetan Singing Bowl">
+                🔔 Ring Singing Bowl
+              </button>
+              <button type="button" id="btn-med-complete-log" class="med-btn-sub" title="Log Completed Minutes">
+                ✓ Log Session
+              </button>
+            </div>
+          </div>
+
+          <!-- Right: Clinical Meditation Programs & Soundscape Mixer -->
+          <div>
+            <div class="card">
+              <div class="card-header">
+                <div>
+                  <h3 class="card-title">Dr. Soliman's Therapeutic Protocols</h3>
+                  <p class="card-subtitle">Select an evidence-based breathwork or mindfulness protocol tailored to your state.</p>
+                </div>
+              </div>
+              <div class="program-list" id="meditation-program-list"></div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <div>
+                  <h3 class="card-title">Offline Sanctuary Soundscape Mixer</h3>
+                  <p class="card-subtitle">Real-time synthesized therapeutic acoustics (works 100% offline).</p>
+                </div>
+              </div>
+
+              <div class="mixer-row">
+                <label for="mix-bowl">🔔 Singing Bowl Chimes</label>
+                <input type="range" id="mix-bowl" class="clinical-slider" min="0" max="100" value="75" />
+              </div>
+              <div class="mixer-row">
+                <label for="mix-pad">〰 Warm Harmonic Pad</label>
+                <input type="range" id="mix-pad" class="clinical-slider" min="0" max="100" value="45" />
+              </div>
+              <div class="mixer-row">
+                <label for="mix-rain">🌧 Sanctuary Rain</label>
+                <input type="range" id="mix-rain" class="clinical-slider" min="0" max="100" value="35" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 3: PATIENT HISTORY, ANALYTICS & DR. SOLIMAN REPORT -->
+      <section id="tab-history" class="tab-pane" aria-label="Emotion History and Psychiatric Session Report">
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <div class="kpi-label">Emotion Check-Ins</div>
+            <div class="kpi-value" id="kpi-total-logs">0</div>
+            <div class="kpi-sub">Recorded entries</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">Mean Intensity</div>
+            <div class="kpi-value" id="kpi-avg-intensity">—</div>
+            <div class="kpi-sub">SUDS (1–10 scale)</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">Primary Affect</div>
+            <div class="kpi-value" id="kpi-top-emotion">—</div>
+            <div class="kpi-sub">Most frequent core state</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">Mindfulness Time</div>
+            <div class="kpi-value" id="kpi-meditation-mins">0m</div>
+            <div class="kpi-sub">Guided sessions logged</div>
+          </div>
+        </div>
+
+        <div class="clinical-grid">
+          <!-- Left: Affect Distribution & Clinical Session Export -->
+          <div>
+            <div class="card">
+              <div class="card-header">
+                <div>
+                  <h3 class="card-title">Affect Balance Across the Emotion Wheel</h3>
+                  <p class="card-subtitle">Distribution of logged core emotions and average intensity.</p>
+                </div>
+              </div>
+              <div id="affect-distribution-bars"></div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <div>
+                  <h3 class="card-title">Session Summary for Dr. Mina Soliman</h3>
+                  <p class="card-subtitle">Share via WhatsApp or copy this clinical summary prior to your appointment.</p>
+                </div>
+              </div>
+              <div class="report-modal-box" id="clinical-report-preview"></div>
+              <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                <button type="button" id="btn-whatsapp-report" class="primary-btn" style="flex: 1; background: var(--whatsapp-green);">
+                  💬 Send Summary via WhatsApp
+                </button>
+                <button type="button" id="btn-share-native" class="secondary-btn">
+                  Share
+                </button>
+                <button type="button" id="btn-copy-report" class="secondary-btn">
+                  Copy Text
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Chronological Patient Timeline -->
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <h3 class="card-title">Patient Emotion &amp; Meditation Log</h3>
+                <p class="card-subtitle">Only your logged emotion check-ins appear here.</p>
+              </div>
+              <button type="button" id="btn-clear-logs" class="secondary-btn" style="font-size: 0.74rem; padding: 5px 9px;">
+                Clear My Logs
+              </button>
+            </div>
+
+            <div class="chip-row" id="history-filter-chips" style="margin-bottom: 12px;"></div>
+            <div id="history-entries-list"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 4: GROUNDING TOOLKIT, BOOKING & EMERGENCY CARE PLAN -->
+      <section id="tab-care" class="tab-pane" aria-label="Grounding Toolkit and Dr. Mina Soliman Care Plan">
+        <div class="clinical-grid">
+          <!-- Left: Direct Contact with Dr. Mina Soliman + 5-4-3-2-1 Grounding -->
+          <div>
+            <div class="card">
+              <div class="card-header">
+                <div>
+                  <h3 class="card-title">Contact Dr. Mina Soliman (Booking &amp; Emergency)</h3>
+                  <p class="card-subtitle">Direct WhatsApp clinic &amp; emergency line for Dr. Mina Soliman's patients.</p>
+                </div>
+              </div>
+
+              <div class="dr-contact-card">
+                <div style="font-weight: 700; font-size: 0.9rem; color: var(--text-primary); margin-bottom: 4px;">
+                  📅 Book a Session with Dr. Mina Soliman
+                </div>
+                <div style="font-size: 0.81rem; color: var(--text-secondary); margin-bottom: 10px;">
+                  To book or reschedule a psychiatric session with Dr. Mina Soliman, contact via WhatsApp:<br />
+                  <a href="https://wa.me/201026281035" target="_blank" rel="noopener" data-wa-url="https://wa.me/201026281035" style="color: var(--accent-primary); font-weight: 700; word-break: break-all;">https://wa.me/201026281035</a>
+                </div>
+                <a href="https://wa.me/201026281035" target="_blank" rel="noopener" data-wa-url="https://wa.me/201026281035" class="primary-btn" style="background: var(--whatsapp-green);">
+                  💬 Book a Session on WhatsApp (+20 102 628 1035)
+                </a>
+              </div>
+
+              <div class="dr-contact-card" style="border-color: var(--emergency-red); margin-bottom: 0;">
+                <div style="font-weight: 700; font-size: 0.9rem; color: var(--emergency-red); margin-bottom: 4px;">
+                  🚨 Contact Dr. Mina Soliman in Case of Emergency
+                </div>
+                <div style="font-size: 0.81rem; color: var(--text-secondary); margin-bottom: 10px;">
+                  In case of an urgent psychiatric emergency, reach Dr. Mina Soliman directly via WhatsApp:<br />
+                  <a href="https://wa.me/201026281035" target="_blank" rel="noopener" data-wa-url="https://wa.me/201026281035" style="color: var(--emergency-red); font-weight: 700; word-break: break-all;">https://wa.me/201026281035</a>
+                </div>
+                <a href="https://wa.me/201026281035" target="_blank" rel="noopener" data-wa-url="https://wa.me/201026281035" class="primary-btn" style="background: var(--emergency-red);">
+                  🚨 Emergency Contact — Dr. Mina Soliman (WhatsApp)
+                </a>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <div>
+                  <h3 class="card-title">5-4-3-2-1 Sensory Grounding Exercise</h3>
+                  <p class="card-subtitle">When emotions feel overwhelming, tap each step as you anchor yourself in the present room.</p>
+                </div>
+                <button type="button" id="btn-reset-grounding" class="secondary-btn" style="font-size: 0.74rem; padding: 5px 9px;">Reset</button>
+              </div>
+
+              <div id="grounding-steps-container">
+                <div class="grounding-step" data-step="5">
+                  <div class="step-num">5</div>
+                  <div>
+                    <strong>5 Things You Can See</strong>
+                    <div style="font-size: 0.8rem; color: var(--text-secondary);">Look around the room and name five distinct objects, colors, or shapes.</div>
+                  </div>
+                </div>
+                <div class="grounding-step" data-step="4">
+                  <div class="step-num">4</div>
+                  <div>
+                    <strong>4 Things You Can Physically Feel</strong>
+                    <div style="font-size: 0.8rem; color: var(--text-secondary);">Notice your feet on the floor, the texture of fabric, or the support of your chair.</div>
+                  </div>
+                </div>
+                <div class="grounding-step" data-step="3">
+                  <div class="step-num">3</div>
+                  <div>
+                    <strong>3 Things You Can Hear</strong>
+                    <div style="font-size: 0.8rem; color: var(--text-secondary);">Listen for three ambient sounds in the distance or close by.</div>
+                  </div>
+                </div>
+                <div class="grounding-step" data-step="2">
+                  <div class="step-num">2</div>
+                  <div>
+                    <strong>2 Things You Can Smell or Sense in the Air</strong>
+                    <div style="font-size: 0.8rem; color: var(--text-secondary);">Take a slow breath through your nose and notice the temperature of the air.</div>
+                  </div>
+                </div>
+                <div class="grounding-step" data-step="1">
+                  <div class="step-num">1</div>
+                  <div>
+                    <strong>1 Compassionate Truth</strong>
+                    <div style="font-size: 0.8rem; color: var(--text-secondary);">Remind yourself: "Emotions are waves; I am safe in this moment."</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Patient Profile & Personal Safety Plan with Dr. Mina Soliman -->
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <h3 class="card-title">My Care Plan with Dr. Mina Soliman</h3>
+                <p class="card-subtitle">Saved privately on your device for quick reference between appointments.</p>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="plan-patient-name">My Name / Preferred Name</label>
+              <input type="text" id="plan-patient-name" class="clinical-input" placeholder="e.g., Alex" />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="plan-next-appt">Next Appointment with Dr. Mina Soliman</label>
+              <input type="text" id="plan-next-appt" class="clinical-input" placeholder="e.g., Thursday at 2:00 PM" />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="plan-coping">My Personal Calming &amp; Coping Strategies</label>
+              <textarea id="plan-coping" class="clinical-textarea" rows="2" placeholder="e.g., 4-7-8 breathing, stepping outside for fresh air, listening to rain sounds..."></textarea>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="plan-questions">Topics &amp; Questions for My Next Session with Dr. Soliman</label>
+              <textarea id="plan-questions" class="clinical-textarea" rows="3" placeholder="Jot down medication observations, sleep changes, or questions for Dr. Mina Soliman..."></textarea>
+            </div>
+
+            <button type="button" id="btn-save-careplan" class="primary-btn">
+              Save Personal Care Plan
+            </button>
+
+            <div style="margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--border-color);">
+              <div style="font-size: 0.84rem; font-weight: 700; color: var(--text-primary); margin-bottom: 4px;">
+                iPhone / iPad / Mac Data Backup
+              </div>
+              <p style="margin: 0 0 10px; font-size: 0.77rem; color: var(--text-secondary);">
+                Back up your private emotion logs and care plan to <strong>iCloud Drive / Files</strong>, or restore a previous backup.
+              </p>
+              <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                <button type="button" id="btn-export-backup" class="secondary-btn" style="flex: 1;">
+                  ⬇️ Export Backup (.json)
+                </button>
+                <button type="button" id="btn-import-backup" class="secondary-btn" style="flex: 1;">
+                  ⬆️ Restore Backup
+                </button>
+              </div>
+              <input type="file" id="input-import-backup" accept="application/json,.json" style="display: none;" />
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Bottom Tab Navigation -->
+    <nav class="bottom-nav" aria-label="Primary App Navigation">
+      <button type="button" class="nav-item active" data-tab="tab-wheel" id="nav-btn-wheel">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"/>
+          <circle cx="12" cy="12" r="4"/>
+          <line x1="12" y1="2" x2="12" y2="8"/>
+          <line x1="12" y1="16" x2="12" y2="22"/>
+          <line x1="2" y1="12" x2="8" y2="12"/>
+          <line x1="16" y1="12" x2="22" y2="12"/>
+        </svg>
+        <span>Emotion Wheel</span>
+      </button>
+      <button type="button" class="nav-item" data-tab="tab-meditation" id="nav-btn-meditation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+        </svg>
+        <span>Meditation</span>
+      </button>
+      <button type="button" class="nav-item" data-tab="tab-history" id="nav-btn-history">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+          <polyline points="14 2 14 8 20 8"/>
+          <line x1="16" y1="13" x2="8" y2="13"/>
+          <line x1="16" y1="17" x2="8" y2="17"/>
+        </svg>
+        <span>Log &amp; Report</span>
+      </button>
+      <button type="button" class="nav-item" data-tab="tab-care" id="nav-btn-care">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+        </svg>
+        <span>Care &amp; Contact</span>
+      </button>
+    </nav>
+
+    <div id="toast-banner" class="toast-banner" role="status" aria-live="polite">Saved</div>
+
+    <!-- Apple iPhone, iPad & Mac Installation Modal -->
+    <div id="ios-install-modal" class="ios-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="ios-modal-title">
+      <div class="ios-modal-card">
+        <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:10px;">
+          <h3 id="ios-modal-title" style="margin:0; font-family:var(--font-serif); font-size:1.1rem; display:inline-flex; align-items:center; gap:8px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent-primary); flex-shrink:0;" aria-hidden="true">
+              <rect x="6" y="2" width="12" height="20" rx="2.5" ry="2.5"/>
+              <line x1="12" y1="18" x2="12.01" y2="18"/>
+            </svg>
+            <span>Add to iPhone, iPad &amp; Mac</span>
+          </h3>
+          <button type="button" id="btn-close-ios-modal" class="secondary-btn" style="padding:4px 10px;">✕</button>
+        </div>
+        <p style="margin:0 0 12px; font-size:0.82rem; color:var(--text-secondary);">
+          Save <strong>Dr. Mina Soliman</strong> directly as a full-screen Apple app with offline support—no App Store download required.
+        </p>
+        <div style="font-size:0.78rem; font-weight:700; text-transform:uppercase; letter-spacing:0.04em; color:var(--accent-primary); margin-bottom:7px;">
+          iPhone &amp; iPad (Safari)
+        </div>
+        <div class="ios-step-item">
+          <div class="ios-step-badge">1</div>
+          <div>Open this page in <strong>Safari</strong>. <em>(If opened from WhatsApp, tap the Safari compass icon <strong>🧭</strong> at the bottom-right corner first.)</em></div>
+        </div>
+        <div class="ios-step-item">
+          <div class="ios-step-badge">2</div>
+          <div>
+            Tap the <strong>Share</strong> icon
+            <span style="display:inline-flex; align-items:center; justify-content:center; width:22px; height:22px; border-radius:6px; background:var(--accent-soft); vertical-align:-4px; margin:0 2px;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent-primary);">
+                <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
+                <polyline points="16 6 12 2 8 6"/>
+                <line x1="12" y1="2" x2="12" y2="15"/>
+              </svg>
+            </span>
+            in Safari's toolbar.
+          </div>
+        </div>
+        <div class="ios-step-item">
+          <div class="ios-step-badge">3</div>
+          <div>Scroll down and tap <strong>"Add to Home Screen"</strong> (<strong>＋</strong>), then tap <strong>"Add"</strong>.</div>
+        </div>
+        <div style="background:var(--bg-secondary); border:1px solid var(--border-color); border-radius:var(--radius-sm); padding:10px 12px; margin:10px 0 14px; font-size:0.8rem; color:var(--text-secondary);">
+          <strong style="color:var(--text-primary);">Mac (Safari):</strong> Click <strong>File → Add to Dock…</strong> (or click the Share icon in the toolbar) to keep <strong>Dr. Mina Soliman</strong> in your Mac Dock.
+        </div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <button type="button" id="btn-download-html" class="secondary-btn" style="flex:1; padding:10px 14px;">💾 Save Offline Copy (.html)</button>
+          <button type="button" id="btn-done-ios-modal" class="primary-btn" style="flex:1; padding:10px 16px;">Done</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script id="main-app-script">
+    const DR_SOLIMAN_WHATSAPP_URL = "https://wa.me/201026281035";
+
+    function postToIOSBridge(payload) {
+      try {
+        if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.iOSBridge) {
+          window.webkit.messageHandlers.iOSBridge.postMessage(payload);
+          return true;
+        }
+      } catch (e) {}
+      return false;
+    }
+
+    function openExternalLink(url) {
+      if (window.AndroidBridge && typeof window.AndroidBridge.openExternalUrl === "function") {
+        window.AndroidBridge.openExternalUrl(url);
+      } else if (postToIOSBridge({ action: "openExternalUrl", url })) {
+        return;
+      } else {
+        const opened = window.open(url, "_blank", "noopener,noreferrer");
+        if (!opened) {
+          window.location.href = url;
+        }
+      }
+    }
+
+    /*************************************************************************
+     * 1. CLINICAL WHEEL OF EMOTIONS TAXONOMY (3-RING HIERARCHY)
+     *************************************************************************/
+    const EMOTION_WHEEL_DATA = [
+      {
+        id: "joy",
+        name: "Joy",
+        color: "#D89A2B",
+        midColor: "#E3B04B",
+        outerColor: "#ECC371",
+        rxProtocolId: "coherent",
+        rxMessage: "Savor and anchor this positive emotional state with Coherent Resonance Breathing to deepen heart-brain harmony.",
+        children: [
+          { name: "Peaceful", children: ["Serene", "Content"] },
+          { name: "Optimistic", children: ["Inspired", "Hopeful"] },
+          { name: "Grateful", children: ["Thankful", "Fulfilled"] }
+        ]
+      },
+      {
+        id: "trust",
+        name: "Trust",
+        color: "#3B8A63",
+        midColor: "#509E77",
+        outerColor: "#6CB38F",
+        rxProtocolId: "metta",
+        rxMessage: "Reinforce feelings of safety and interpersonal connection with Dr. Soliman's Self-Compassion & Grounding meditation.",
+        children: [
+          { name: "Safe", children: ["Grounded", "Secure"] },
+          { name: "Accepted", children: ["Valued", "Respected"] },
+          { name: "Connected", children: ["Supported", "Intimate"] }
+        ]
+      },
+      {
+        id: "fear",
+        name: "Fear",
+        color: "#2B7A7C",
+        midColor: "#3E8F91",
+        outerColor: "#58A6A8",
+        rxProtocolId: "reset478",
+        rxMessage: "When fear or anxiety is active, the 4-7-8 Parasympathetic Reset lengthens your exhale to signal safety to your amygdala.",
+        children: [
+          { name: "Anxious", children: ["Worried", "Panicky"] },
+          { name: "Overwhelmed", children: ["Flooded", "Helpless"] },
+          { name: "Insecure", children: ["Inadequate", "Uncertain"] }
+        ]
+      },
+      {
+        id: "surprise",
+        name: "Surprise",
+        color: "#3A7CA5",
+        midColor: "#5091B9",
+        outerColor: "#6CA8CD",
+        rxProtocolId: "box4444",
+        rxMessage: "When feeling startled or disoriented, Box Breathing (4-4-4-4) restores cognitive steadiness and present-moment clarity.",
+        children: [
+          { name: "Startled", children: ["Shocked", "Jolted"] },
+          { name: "Confused", children: ["Disoriented", "Perplexed"] },
+          { name: "Amazed", children: ["Awestruck", "Moved"] }
+        ]
+      },
+      {
+        id: "sadness",
+        name: "Sadness",
+        color: "#4A5D9E",
+        midColor: "#6073B1",
+        outerColor: "#7B8CC4",
+        rxProtocolId: "metta",
+        rxMessage: "Meet heavy sadness or loneliness with gentle warmth using Dr. Soliman's Compassionate Body Scan & Metta practice.",
+        children: [
+          { name: "Lonely", children: ["Isolated", "Abandoned"] },
+          { name: "Vulnerable", children: ["Fragile", "Grieving"] },
+          { name: "Hopeless", children: ["Despondent", "Powerless"] }
+        ]
+      },
+      {
+        id: "disgust",
+        name: "Disgust",
+        color: "#737046",
+        midColor: "#89865B",
+        outerColor: "#A09D74",
+        rxProtocolId: "grounding54321",
+        rxMessage: "When feeling drained, avoidant, or burnt out, gentle Sensory Grounding helps reconnect you with your body without pressure.",
+        children: [
+          { name: "Drained", children: ["Exhausted", "Numb"] },
+          { name: "Disappointed", children: ["Let Down", "Disillusioned"] },
+          { name: "Avoidant", children: ["Withdrawn", "Averse"] }
+        ]
+      },
+      {
+        id: "anger",
+        name: "Anger",
+        color: "#C25441",
+        midColor: "#D16B59",
+        outerColor: "#DF8575",
+        rxProtocolId: "sigh",
+        rxMessage: "High-arousal frustration or anger responds rapidly to the Physiological Sigh—releasing trapped sympathetic tension.",
+        children: [
+          { name: "Frustrated", children: ["Blocked", "Annoyed"] },
+          { name: "Irritable", children: ["Agitated", "Impatient"] },
+          { name: "Hurt", children: ["Betrayed", "Resentful"] }
+        ]
+      },
+      {
+        id: "anticipation",
+        name: "Anticipation",
+        color: "#D4743B",
+        midColor: "#E08B56",
+        outerColor: "#EB9F70",
+        rxProtocolId: "box4444",
+        rxMessage: "Channel restless anticipation or hyper-focus into steady equilibrium with 4-4-4-4 Box Breathing.",
+        children: [
+          { name: "Restless", children: ["Keyed Up", "Wired"] },
+          { name: "Focused", children: ["Vigilant", "Alert"] },
+          { name: "Eager", children: ["Driven", "Expectant"] }
+        ]
+      }
+    ];
+
+    const SOMATIC_OPTIONS = [
+      "Calm / Relaxed",
+      "Chest Tightness",
+      "Racing Heart",
+      "Shallow Breath",
+      "Stomach Knots",
+      "Jaw / Neck Tension",
+      "Heavy Limbs / Fatigue",
+      "Restless Energy",
+      "Warmth / Ease"
+    ];
+
+    const TRIGGER_OPTIONS = [
+      "Sleep / Fatigue",
+      "Work / Study",
+      "Family / Home",
+      "Relationships",
+      "Health / Medication",
+      "Social Situation",
+      "Solitude",
+      "Therapy Reflection",
+      "Unclear / Spontaneous"
+    ];
+
+    const MEDITATION_PROTOCOLS = [
+      {
+        id: "reset478",
+        name: "4-7-8 Parasympathetic Reset",
+        subtitle: "For acute anxiety, racing thoughts & pre-sleep calm",
+        cadenceLabel: "4s · 7s · 8s",
+        phases: [
+          { label: "Inhale Quietly", duration: 4, scale: 1.32, prompt: "Breathe in softly through your nose, filling your lower ribs..." },
+          { label: "Hold Gently", duration: 7, scale: 1.32, prompt: "Rest in stillness. Let your shoulders drop away from your ears..." },
+          { label: "Release Slowly", duration: 8, scale: 0.88, prompt: "Exhale completely through pursed lips—releasing tension with the breath." }
+        ]
+      },
+      {
+        id: "box4444",
+        name: "Box Breathing (4-4-4-4)",
+        subtitle: "For panic regulation, focus & autonomic steadiness",
+        cadenceLabel: "4s · 4s · 4s · 4s",
+        phases: [
+          { label: "Inhale Steadily", duration: 4, scale: 1.3, prompt: "Draw a slow, even breath in through your nose..." },
+          { label: "Hold Full", duration: 4, scale: 1.3, prompt: "Pause smoothly at the top of the breath..." },
+          { label: "Exhale Evenly", duration: 4, scale: 0.88, prompt: "Release the breath gently and evenly..." },
+          { label: "Rest Empty", duration: 4, scale: 0.88, prompt: "Notice the quiet stillness before the next breath begins." }
+        ]
+      },
+      {
+        id: "coherent",
+        name: "Coherent Resonance (5.5s / 5.5s)",
+        subtitle: "Heart-rate variability (HRV) synchronization",
+        cadenceLabel: "5.5s · 5.5s",
+        phases: [
+          { label: "Inhale Smoothly", duration: 5.5, scale: 1.32, prompt: "Expand your belly and chest in one continuous wave..." },
+          { label: "Exhale Smoothly", duration: 5.5, scale: 0.88, prompt: "Let go effortlessly, like a tide receding to shore..." }
+        ]
+      },
+      {
+        id: "sigh",
+        name: "Physiological Sigh",
+        subtitle: "Rapid vagal brake for frustration & high stress",
+        cadenceLabel: "4s + 1.5s · 7s",
+        phases: [
+          { label: "Deep Inhale", duration: 4, scale: 1.22, prompt: "Inhale deeply through your nose..." },
+          { label: "Top-Up Sip", duration: 1.5, scale: 1.35, prompt: "Take one quick second sip of air at the very top..." },
+          { label: "Long Sigh Out", duration: 7, scale: 0.86, prompt: "Sigh all the air out slowly through your mouth—feel your heart rate settle." }
+        ]
+      },
+      {
+        id: "grounding54321",
+        name: "Somatic & Sensory Grounding",
+        subtitle: "For dissociation, numbness & emotional overwhelm",
+        cadenceLabel: "4s · 2s · 6s",
+        phases: [
+          { label: "Inhale & Notice", duration: 4, scale: 1.28, prompt: "Feel the weight of your body supported by the chair or floor..." },
+          { label: "Anchor Here", duration: 2, scale: 1.28, prompt: "You are here in the present moment, safe and observant..." },
+          { label: "Soften & Release", duration: 6, scale: 0.88, prompt: "Unclench your jaw and let your hands rest open." }
+        ]
+      },
+      {
+        id: "metta",
+        name: "Self-Compassion & Metta",
+        subtitle: "For heavy sadness, shame & self-criticism",
+        cadenceLabel: "5s · 2s · 6s",
+        phases: [
+          { label: "Breathe In Warmth", duration: 5, scale: 1.3, prompt: "\"May I meet this moment with kindness rather than judgment...\"" },
+          { label: "Hold in Care", duration: 2, scale: 1.3, prompt: "Place a gentle hand over your heart if that feels supportive..." },
+          { label: "Exhale Heaviness", duration: 6, scale: 0.88, prompt: "\"May I allow myself to heal one breath at a time.\"" }
+        ]
+      }
+    ];
+
+    /*************************************************************************
+     * 2. APPLICATION STATE & STORAGE (PATIENT ENTRIES ONLY — NO DEMO DATA)
+     *************************************************************************/
+    const STORAGE_KEY = "dr_mina_soliman_patient_logs_v2";
+
+    let appState = {
+      theme: "light",
+      selectedCoreIdx: 1,
+      selectedSecIdx: 0,
+      selectedTertIdx: 0,
+      coEmotions: [],
+      somaticSelected: [],
+      triggersSelected: [],
+      intensity: 5,
+      historyFilter: "all",
+      meditationMinutes: 0,
+      carePlan: {
+        patientName: "",
+        nextAppt: "",
+        coping: "",
+        questions: ""
+      },
+      logs: []
+    };
+
+    function escapeHtml(str) {
+      return String(str == null ? "" : str)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+    }
+
+    function sanitizeColorHex(color) {
+      const s = String(color || "").trim();
+      return /^#[0-9a-fA-F]{3,8}$/.test(s) ? s : "#3B8A63";
+    }
+
+    function sanitizeLogEntry(item) {
+      if (!item || typeof item !== "object") return null;
+      const id = String(item.id || ("log-" + Date.now()));
+      if (id.startsWith("demo-")) return null;
+      const core = String(item.core || "").trim();
+      const secondary = String(item.secondary || "").trim();
+      const tertiary = String(item.tertiary || "").trim();
+      if (!core || !secondary || !tertiary) return null;
+      const intensityNum = Number(item.intensity);
+      const intensity = Number.isFinite(intensityNum) ? Math.min(10, Math.max(1, Math.round(intensityNum))) : 5;
+      const tsNum = Number(item.timestamp);
+      const timestamp = Number.isFinite(tsNum) && tsNum > 0 ? tsNum : Date.now();
+      return {
+        id,
+        timestamp,
+        core,
+        secondary,
+        tertiary,
+        color: sanitizeColorHex(item.color),
+        intensity,
+        coEmotions: Array.isArray(item.coEmotions) ? item.coEmotions.map(x => String(x).trim()).filter(Boolean).slice(0, 12) : [],
+        somatic: Array.isArray(item.somatic) ? item.somatic.map(x => String(x).trim()).filter(Boolean).slice(0, 12) : [],
+        triggers: Array.isArray(item.triggers) ? item.triggers.map(x => String(x).trim()).filter(Boolean).slice(0, 12) : [],
+        note: String(item.note || "").slice(0, 4000)
+      };
+    }
+
+    function loadState() {
+      try {
+        // Purge any legacy v1 storage that contained demo entries
+        localStorage.removeItem("dr_mina_soliman_sanctuary_v1");
+
+        let raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw && window.AndroidBridge && typeof window.AndroidBridge.loadBackup === "function") {
+          raw = window.AndroidBridge.loadBackup();
+        }
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          if (parsed && typeof parsed === "object") {
+            const cleanLogs = Array.isArray(parsed.logs)
+              ? parsed.logs.map(sanitizeLogEntry).filter(Boolean)
+              : [];
+            parsed.logs = cleanLogs;
+            appState = Object.assign({}, appState, parsed);
+          }
+        } else {
+          appState.logs = [];
+        }
+      } catch (e) {
+        appState.logs = [];
+      }
+    }
+
+    function saveState() {
+      try {
+        const serialized = JSON.stringify(appState);
+        localStorage.setItem(STORAGE_KEY, serialized);
+        if (window.AndroidBridge && typeof window.AndroidBridge.saveBackup === "function") {
+          window.AndroidBridge.saveBackup(serialized);
+        }
+        postToIOSBridge({ action: "saveBackup", data: serialized });
+      } catch (e) {}
+    }
+
+    function triggerHaptic(ms = 18) {
+      try {
+        if (window.AndroidBridge && typeof window.AndroidBridge.vibrate === "function") {
+          window.AndroidBridge.vibrate(ms);
+        } else if (postToIOSBridge({ action: "vibrate", ms })) {
+          return;
+        } else if (navigator.vibrate) {
+          navigator.vibrate(ms);
+        }
+      } catch (e) {}
+    }
+
+    function showToast(msg) {
+      const banner = document.getElementById("toast-banner");
+      banner.textContent = msg;
+      banner.classList.add("show");
+      clearTimeout(window.__toastTimer);
+      window.__toastTimer = setTimeout(() => {
+        banner.classList.remove("show");
+      }, 2600);
+    }
+
+    /*************************************************************************
+     * 3. SVG 3-RING WHEEL OF EMOTIONS GENERATOR (CENTERED AT 270, 270 IN 540x540)
+     *************************************************************************/
+    const WHEEL_CX = 270;
+    const WHEEL_CY = 270;
+
+    function polarToCartesian(cx, cy, r, angleDeg) {
+      const rad = ((angleDeg - 90) * Math.PI) / 180.0;
+      return {
+        x: cx + r * Math.cos(rad),
+        y: cy + r * Math.sin(rad)
+      };
+    }
+
+    function createAnnularWedgePath(cx, cy, rInner, rOuter, startAngle, endAngle) {
+      const p1 = polarToCartesian(cx, cy, rOuter, endAngle);
+      const p2 = polarToCartesian(cx, cy, rOuter, startAngle);
+      const p3 = polarToCartesian(cx, cy, rInner, startAngle);
+      const p4 = polarToCartesian(cx, cy, rInner, endAngle);
+      const largeArc = endAngle - startAngle <= 180 ? "0" : "1";
+      return [
+        "M", p1.x.toFixed(2), p1.y.toFixed(2),
+        "A", rOuter, rOuter, 0, largeArc, 0, p2.x.toFixed(2), p2.y.toFixed(2),
+        "L", p3.x.toFixed(2), p3.y.toFixed(2),
+        "A", rInner, rInner, 0, largeArc, 1, p4.x.toFixed(2), p4.y.toFixed(2),
+        "Z"
+      ].join(" ");
+    }
+
+    function getRadialLabelTransform(cx, cy, rMid, midAngle) {
+      const pos = polarToCartesian(cx, cy, rMid, midAngle);
+      let rot = midAngle - 90;
+      if (midAngle > 180) {
+        rot = midAngle + 90;
+      }
+      return `translate(${pos.x.toFixed(2)}, ${pos.y.toFixed(2)}) rotate(${rot.toFixed(2)})`;
+    }
+
+    function renderEmotionWheelSVG() {
+      const svg = document.getElementById("emotion-wheel-svg");
+      svg.innerHTML = "";
+
+      const rCenter = 36;
+      const rRing1 = 96;  // 8 Core emotions
+      const rRing2 = 168; // 24 Secondary emotions
+      const rRing3 = 242; // 48 Tertiary emotions (484px diameter inside 540x540 viewBox)
+
+      const numCore = EMOTION_WHEEL_DATA.length;
+      const coreSweep = 360 / numCore;
+
+      EMOTION_WHEEL_DATA.forEach((core, cIdx) => {
+        const cStart = cIdx * coreSweep;
+        const cEnd = (cIdx + 1) * coreSweep;
+        const cMid = (cStart + cEnd) / 2;
+        const isCoreSelected = cIdx === appState.selectedCoreIdx;
+
+        // 1. Inner Ring Wedge (Core Emotion)
+        const path1 = document.createElementNS("http://www.w3.org/2000/svg", "path");
+        path1.setAttribute("d", createAnnularWedgePath(WHEEL_CX, WHEEL_CY, rCenter, rRing1, cStart, cEnd));
+        path1.setAttribute("fill", core.color);
+        path1.setAttribute("stroke", "#FFFFFF");
+        path1.setAttribute("stroke-width", isCoreSelected ? "2.4" : "1.2");
+        path1.setAttribute("class", `wheel-wedge ${isCoreSelected ? "selected" : ""}`);
+        path1.addEventListener("click", () => {
+          triggerHaptic(15);
+          appState.selectedCoreIdx = cIdx;
+          appState.selectedSecIdx = 0;
+          appState.selectedTertIdx = 0;
+          updateWheelSelectionUI();
+        });
+        svg.appendChild(path1);
+
+        const label1 = document.createElementNS("http://www.w3.org/2000/svg", "text");
+        label1.setAttribute("transform", getRadialLabelTransform(WHEEL_CX, WHEEL_CY, (rCenter + rRing1) / 2, cMid));
+        label1.setAttribute("text-anchor", "middle");
+        label1.setAttribute("dominant-baseline", "central");
+        label1.setAttribute("class", "wheel-label");
+        label1.setAttribute("font-size", "10.5");
+        label1.textContent = core.name;
+        svg.appendChild(label1);
+
+        // 2. Middle Ring (3 Secondary Emotions per Core)
+        const secSweep = coreSweep / core.children.length;
+        core.children.forEach((sec, sIdx) => {
+          const sStart = cStart + sIdx * secSweep;
+          const sEnd = sStart + secSweep;
+          const sMid = (sStart + sEnd) / 2;
+          const isSecSelected = isCoreSelected && sIdx === appState.selectedSecIdx;
+
+          const path2 = document.createElementNS("http://www.w3.org/2000/svg", "path");
+          path2.setAttribute("d", createAnnularWedgePath(WHEEL_CX, WHEEL_CY, rRing1, rRing2, sStart, sEnd));
+          path2.setAttribute("fill", core.midColor);
+          path2.setAttribute("stroke", "#FFFFFF");
+          path2.setAttribute("stroke-width", isSecSelected ? "2.2" : "1");
+          path2.setAttribute("class", `wheel-wedge ${isSecSelected ? "selected" : ""}`);
+          path2.addEventListener("click", () => {
+            triggerHaptic(15);
+            appState.selectedCoreIdx = cIdx;
+            appState.selectedSecIdx = sIdx;
+            appState.selectedTertIdx = 0;
+            updateWheelSelectionUI();
+          });
+          svg.appendChild(path2);
+
+          const label2 = document.createElementNS("http://www.w3.org/2000/svg", "text");
+          label2.setAttribute("transform", getRadialLabelTransform(WHEEL_CX, WHEEL_CY, (rRing1 + rRing2) / 2, sMid));
+          label2.setAttribute("text-anchor", "middle");
+          label2.setAttribute("dominant-baseline", "central");
+          label2.setAttribute("class", "wheel-label");
+          label2.setAttribute("font-size", "8.5");
+          label2.textContent = sec.name;
+          svg.appendChild(label2);
+
+          // 3. Outer Ring (2 Tertiary Emotions per Secondary)
+          const tertSweep = secSweep / sec.children.length;
+          sec.children.forEach((tertName, tIdx) => {
+            const tStart = sStart + tIdx * tertSweep;
+            const tEnd = tStart + tertSweep;
+            const tMid = (tStart + tEnd) / 2;
+            const isTertSelected = isSecSelected && tIdx === appState.selectedTertIdx;
+
+            const path3 = document.createElementNS("http://www.w3.org/2000/svg", "path");
+            path3.setAttribute("d", createAnnularWedgePath(WHEEL_CX, WHEEL_CY, rRing2, rRing3, tStart, tEnd));
+            path3.setAttribute("fill", core.outerColor);
+            path3.setAttribute("stroke", "#FFFFFF");
+            path3.setAttribute("stroke-width", isTertSelected ? "2.2" : "0.8");
+            path3.setAttribute("class", `wheel-wedge ${isTertSelected ? "selected" : ""}`);
+            path3.addEventListener("click", () => {
+              triggerHaptic(18);
+              appState.selectedCoreIdx = cIdx;
+              appState.selectedSecIdx = sIdx;
+              appState.selectedTertIdx = tIdx;
+              updateWheelSelectionUI();
+            });
+            svg.appendChild(path3);
+
+            const label3 = document.createElementNS("http://www.w3.org/2000/svg", "text");
+            label3.setAttribute("transform", getRadialLabelTransform(WHEEL_CX, WHEEL_CY, (rRing2 + rRing3) / 2, tMid));
+            label3.setAttribute("text-anchor", "middle");
+            label3.setAttribute("dominant-baseline", "central");
+            label3.setAttribute("class", "wheel-label");
+            label3.setAttribute("font-size", "7.3");
+            label3.textContent = tertName;
+            svg.appendChild(label3);
+          });
+        });
+      });
+
+      // Center Sanctuary Hub Circle at (270, 270)
+      const activeCore = EMOTION_WHEEL_DATA[appState.selectedCoreIdx];
+      const hub = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+      hub.setAttribute("cx", String(WHEEL_CX));
+      hub.setAttribute("cy", String(WHEEL_CY));
+      hub.setAttribute("r", String(rCenter));
+      hub.setAttribute("fill", "#162B26");
+      hub.setAttribute("stroke", activeCore.color);
+      hub.setAttribute("stroke-width", "3");
+      svg.appendChild(hub);
+
+      const hubText = document.createElementNS("http://www.w3.org/2000/svg", "text");
+      hubText.setAttribute("x", String(WHEEL_CX));
+      hubText.setAttribute("y", String(WHEEL_CY));
+      hubText.setAttribute("text-anchor", "middle");
+      hubText.setAttribute("dominant-baseline", "central");
+      hubText.setAttribute("fill", "#FAF7F0");
+      hubText.setAttribute("font-size", "8.5");
+      hubText.setAttribute("font-weight", "700");
+      hubText.textContent = activeCore.name.toUpperCase();
+      svg.appendChild(hubText);
+    }
+
+    function updateWheelSelectionUI() {
+      const core = EMOTION_WHEEL_DATA[appState.selectedCoreIdx];
+      const sec = core.children[appState.selectedSecIdx];
+      const tert = sec.children[appState.selectedTertIdx];
+
+      renderEmotionWheelSVG();
+
+      document.getElementById("selected-emotion-dot").style.background = core.color;
+      document.getElementById("breadcrumb-core").textContent = core.name;
+      document.getElementById("breadcrumb-secondary").textContent = sec.name;
+      document.getElementById("breadcrumb-tertiary").textContent = tert;
+
+      const t1 = document.getElementById("tier1-chips");
+      t1.innerHTML = "";
+      EMOTION_WHEEL_DATA.forEach((c, idx) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        const active = idx === appState.selectedCoreIdx;
+        btn.className = "emotion-chip" + (active ? " active" : "");
+        if (active) btn.style.background = c.color;
+        btn.innerHTML = `<span class="emotion-dot" style="background:${active ? '#FFF' : c.color}; width:8px; height:8px;"></span><span>${c.name}</span>`;
+        btn.addEventListener("click", () => {
+          triggerHaptic(12);
+          appState.selectedCoreIdx = idx;
+          appState.selectedSecIdx = 0;
+          appState.selectedTertIdx = 0;
+          updateWheelSelectionUI();
+        });
+        t1.appendChild(btn);
+      });
+
+      const t2 = document.getElementById("tier2-chips");
+      t2.innerHTML = "";
+      core.children.forEach((s, idx) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        const active = idx === appState.selectedSecIdx;
+        btn.className = "emotion-chip" + (active ? " active" : "");
+        if (active) btn.style.background = core.midColor;
+        btn.textContent = s.name;
+        btn.addEventListener("click", () => {
+          triggerHaptic(12);
+          appState.selectedSecIdx = idx;
+          appState.selectedTertIdx = 0;
+          updateWheelSelectionUI();
+        });
+        t2.appendChild(btn);
+      });
+
+      const t3 = document.getElementById("tier3-chips");
+      t3.innerHTML = "";
+      sec.children.forEach((tName, idx) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        const active = idx === appState.selectedTertIdx;
+        btn.className = "emotion-chip" + (active ? " active" : "");
+        if (active) btn.style.background = core.color;
+        btn.textContent = tName;
+        btn.addEventListener("click", () => {
+          triggerHaptic(12);
+          appState.selectedTertIdx = idx;
+          updateWheelSelectionUI();
+        });
+        t3.appendChild(btn);
+      });
+    }
+
+    /*************************************************************************
+     * 4. CLINICAL FORM TAGS & CHECK-IN LOGIC
+     *************************************************************************/
+    function getIntensityDescription(val) {
+      const v = Number(val);
+      if (v <= 2) return "Mild — Subtle background awareness";
+      if (v <= 4) return "Low-Moderate — Manageable & steady";
+      if (v <= 6) return "Moderate — Noticeable & present";
+      if (v <= 8) return "Strong — Difficult to ignore, distressing";
+      return "Acute — Intense & overwhelming";
+    }
+
+    function renderFormTagSelectors() {
+      const coContainer = document.getElementById("co-emotion-tags");
+      coContainer.innerHTML = "";
+      const coCandidates = ["Anxious", "Peaceful", "Drained", "Frustrated", "Lonely", "Grateful", "Overwhelmed", "Hopeful"];
+      coCandidates.forEach(label => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        const selected = appState.coEmotions.includes(label);
+        btn.className = "tag-btn" + (selected ? " selected" : "");
+        btn.textContent = label;
+        btn.addEventListener("click", () => {
+          triggerHaptic(10);
+          if (appState.coEmotions.includes(label)) {
+            appState.coEmotions = appState.coEmotions.filter(x => x !== label);
+          } else {
+            appState.coEmotions.push(label);
+          }
+          renderFormTagSelectors();
+        });
+        coContainer.appendChild(btn);
+      });
+
+      const somContainer = document.getElementById("somatic-tags");
+      somContainer.innerHTML = "";
+      SOMATIC_OPTIONS.forEach(label => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        const selected = appState.somaticSelected.includes(label);
+        btn.className = "tag-btn" + (selected ? " selected" : "");
+        btn.textContent = label;
+        btn.addEventListener("click", () => {
+          triggerHaptic(10);
+          if (appState.somaticSelected.includes(label)) {
+            appState.somaticSelected = appState.somaticSelected.filter(x => x !== label);
+          } else {
+            appState.somaticSelected.push(label);
+          }
+          renderFormTagSelectors();
+        });
+        somContainer.appendChild(btn);
+      });
+
+      const trigContainer = document.getElementById("trigger-tags");
+      trigContainer.innerHTML = "";
+      TRIGGER_OPTIONS.forEach(label => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        const selected = appState.triggersSelected.includes(label);
+        btn.className = "tag-btn" + (selected ? " selected" : "");
+        btn.textContent = label;
+        btn.addEventListener("click", () => {
+          triggerHaptic(10);
+          if (appState.triggersSelected.includes(label)) {
+            appState.triggersSelected = appState.triggersSelected.filter(x => x !== label);
+          } else {
+            appState.triggersSelected.push(label);
+          }
+          renderFormTagSelectors();
+        });
+        trigContainer.appendChild(btn);
+      });
+    }
+
+    function handleSaveEmotionLog() {
+      const core = EMOTION_WHEEL_DATA[appState.selectedCoreIdx];
+      const sec = core.children[appState.selectedSecIdx];
+      const tert = sec.children[appState.selectedTertIdx];
+      const noteEl = document.getElementById("input-journal-note");
+
+      const newEntry = {
+        id: "log-" + Date.now(),
+        timestamp: Date.now(),
+        core: core.name,
+        secondary: sec.name,
+        tertiary: tert,
+        color: core.color,
+        intensity: Number(appState.intensity),
+        coEmotions: [...appState.coEmotions],
+        somatic: [...appState.somaticSelected],
+        triggers: [...appState.triggersSelected],
+        note: noteEl.value.trim()
+      };
+
+      appState.logs.unshift(newEntry);
+      noteEl.value = "";
+      appState.coEmotions = [];
+      saveState();
+      triggerHaptic(30);
+      renderFormTagSelectors();
+      updateHeaderAndHistoryUI();
+
+      const rxBox = document.getElementById("rx-recommendation-box");
+      const rxProtocol = MEDITATION_PROTOCOLS.find(p => p.id === core.rxProtocolId) || MEDITATION_PROTOCOLS[0];
+      document.getElementById("rx-title").textContent = `Logged: ${core.name} → ${sec.name} → ${tert} (${newEntry.intensity}/10)`;
+      document.getElementById("rx-body").textContent = `Dr. Mina Soliman's Guidance: ${core.rxMessage}`;
+      const launchBtn = document.getElementById("btn-launch-rx-meditation");
+      launchBtn.textContent = `Open "${rxProtocol.name}" in Sanctuary →`;
+      launchBtn.onclick = () => {
+        selectMeditationProtocol(rxProtocol.id);
+        switchTab("tab-meditation");
+      };
+      rxBox.classList.add("visible");
+
+      showToast(`Logged "${tert}" (${core.name}) to Journal`);
+    }
+
+    /*************************************************************************
+     * 5. WEB AUDIO API THERAPEUTIC SOUNDSCAPE & MEDITATION ENGINE
+     *************************************************************************/
+    let audioCtx = null;
+    let padNodes = null;
+    let rainNodes = null;
+    let currentProtocolId = "reset478";
+    let medDurationSeconds = 300;
+    let medRemainingSeconds = 300;
+    let medRunning = false;
+    let medCycleCount = 0;
+    let medPhaseIndex = 0;
+    let medPhaseElapsed = 0;
+    let medIntervalId = null;
+
+    function ensureAudioContext(onReady) {
+      if (!audioCtx) {
+        const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+        if (AudioContextClass) {
+          audioCtx = new AudioContextClass();
+        }
+      }
+      if (!audioCtx) return null;
+      if (audioCtx.state === "suspended") {
+        audioCtx.resume().then(() => {
+          if (typeof onReady === "function") onReady();
+        }).catch(() => {});
+      } else if (typeof onReady === "function") {
+        onReady();
+      }
+      return audioCtx;
+    }
+
+    function getMixerLevels() {
+      const bowl = Number(document.getElementById("mix-bowl").value) / 100;
+      const pad = Number(document.getElementById("mix-pad").value) / 100;
+      const rain = Number(document.getElementById("mix-rain").value) / 100;
+      return { bowl, pad, rain };
+    }
+
+    function playSingingBowlChime(baseFreq = 432) {
+      try {
+        ensureAudioContext(() => {
+          if (!audioCtx) return;
+          const { bowl } = getMixerLevels();
+          if (bowl <= 0.01) return;
+
+          const now = audioCtx.currentTime;
+          const partials = [
+            { ratio: 1.0, amp: 0.22, decay: 4.2 },
+            { ratio: 2.76, amp: 0.09, decay: 2.8 },
+            { ratio: 5.4, amp: 0.04, decay: 1.6 }
+          ];
+
+          partials.forEach(p => {
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.type = "sine";
+            osc.frequency.setValueAtTime(baseFreq * p.ratio, now);
+
+            const peak = p.amp * bowl;
+            gain.gain.setValueAtTime(0.0001, now);
+            gain.gain.linearRampToValueAtTime(peak, now + 0.04);
+            gain.gain.exponentialRampToValueAtTime(0.0001, now + p.decay);
+
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            osc.start(now);
+            osc.stop(now + p.decay + 0.05);
+          });
+        });
+      } catch (e) {}
+    }
+
+    function startAmbientSoundscape() {
+      try {
+        ensureAudioContext(() => {
+          if (!audioCtx || !medRunning) return;
+          stopAmbientSoundscape();
+
+          const { pad, rain } = getMixerLevels();
+          const now = audioCtx.currentTime;
+
+          const padMaster = audioCtx.createGain();
+          padMaster.gain.setValueAtTime(0.001, now);
+          padMaster.gain.linearRampToValueAtTime(pad * 0.12, now + 1.5);
+          padMaster.connect(audioCtx.destination);
+
+          const freqs = [216, 324, 432];
+          const oscs = freqs.map(f => {
+            const o = audioCtx.createOscillator();
+            o.type = "sine";
+            o.frequency.setValueAtTime(f, now);
+            o.connect(padMaster);
+            o.start(now);
+            return o;
+          });
+          padNodes = { master: padMaster, oscs };
+
+          const bufferSize = audioCtx.sampleRate * 2;
+          const noiseBuffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+          const output = noiseBuffer.getChannelData(0);
+          let b0 = 0, b1 = 0, b2 = 0, b3 = 0, b4 = 0, b5 = 0, b6 = 0;
+          for (let i = 0; i < bufferSize; i++) {
+            const white = Math.random() * 2 - 1;
+            b0 = 0.99886 * b0 + white * 0.0555179;
+            b1 = 0.99332 * b1 + white * 0.0750759;
+            b2 = 0.96900 * b2 + white * 0.1538520;
+            b3 = 0.86650 * b3 + white * 0.3104856;
+            b4 = 0.55000 * b4 + white * 0.5329522;
+            b5 = -0.7616 * b5 - white * 0.0168980;
+            output[i] = (b0 + b1 + b2 + b3 + b4 + b5 + b6 + white * 0.5362) * 0.03;
+            b6 = white * 0.115926;
+          }
+
+          const whiteNoise = audioCtx.createBufferSource();
+          whiteNoise.buffer = noiseBuffer;
+          whiteNoise.loop = true;
+
+          const filter = audioCtx.createBiquadFilter();
+          filter.type = "lowpass";
+          filter.frequency.setValueAtTime(950, now);
+
+          const rainGain = audioCtx.createGain();
+          rainGain.gain.setValueAtTime(0.001, now);
+          rainGain.gain.linearRampToValueAtTime(rain * 0.28, now + 1.5);
+
+          whiteNoise.connect(filter);
+          filter.connect(rainGain);
+          rainGain.connect(audioCtx.destination);
+          whiteNoise.start(now);
+
+          rainNodes = { source: whiteNoise, gain: rainGain };
+        });
+      } catch (e) {}
+    }
+
+    function updateAmbientMixerGains() {
+      if (!audioCtx) return;
+      const { pad, rain } = getMixerLevels();
+      const now = audioCtx.currentTime;
+      if (padNodes && padNodes.master) {
+        padNodes.master.gain.setTargetAtTime(pad * 0.12, now, 0.2);
+      }
+      if (rainNodes && rainNodes.gain) {
+        rainNodes.gain.gain.setTargetAtTime(rain * 0.28, now, 0.2);
+      }
+    }
+
+    function stopAmbientSoundscape() {
+      try {
+        if (padNodes) {
+          padNodes.oscs.forEach(o => { try { o.stop(); } catch (e) {} });
+          padNodes = null;
+        }
+        if (rainNodes) {
+          try { rainNodes.source.stop(); } catch (e) {}
+          rainNodes = null;
+        }
+      } catch (e) {}
+    }
+
+    function formatMMSS(sec) {
+      const s = Math.max(0, Math.ceil(sec));
+      const m = Math.floor(s / 60);
+      const rem = s % 60;
+      return String(m).padStart(2, "0") + ":" + String(rem).padStart(2, "0");
+    }
+
+    function renderMeditationProtocolList() {
+      const list = document.getElementById("meditation-program-list");
+      list.innerHTML = "";
+      MEDITATION_PROTOCOLS.forEach(p => {
+        const div = document.createElement("div");
+        div.className = "program-card" + (p.id === currentProtocolId ? " active" : "");
+        div.innerHTML = `
+          <div>
+            <h4>${p.name}</h4>
+            <p>${p.subtitle}</p>
+          </div>
+          <span class="program-cadence">${p.cadenceLabel}</span>
+        `;
+        div.addEventListener("click", () => {
+          triggerHaptic(14);
+          selectMeditationProtocol(p.id);
+        });
+        list.appendChild(div);
+      });
+    }
+
+    function selectMeditationProtocol(protocolId) {
+      if (medRunning) {
+        stopMeditationSession(false);
+      }
+      currentProtocolId = protocolId;
+      const proto = MEDITATION_PROTOCOLS.find(p => p.id === protocolId) || MEDITATION_PROTOCOLS[0];
+      document.getElementById("med-stage-title").textContent = proto.name;
+      document.getElementById("med-stage-desc").textContent = proto.subtitle;
+      document.getElementById("orb-phase-label").textContent = "Ready";
+      document.getElementById("orb-phase-timer").textContent = formatMMSS(medDurationSeconds);
+      document.getElementById("med-total-remaining").textContent = formatMMSS(medDurationSeconds);
+      document.getElementById("med-guided-prompt").textContent = `"${proto.phases[0].prompt}"`;
+      renderMeditationProtocolList();
+    }
+
+    function toggleMeditationSession() {
+      if (medRunning) {
+        stopMeditationSession(false);
+      } else {
+        startMeditationSession();
+      }
+    }
+
+    let medWakeLock = null;
+
+    async function requestScreenWakeLock() {
+      try {
+        if ("wakeLock" in navigator && !medWakeLock) {
+          medWakeLock = await navigator.wakeLock.request("screen");
+          medWakeLock.addEventListener("release", () => { medWakeLock = null; });
+        }
+      } catch (e) {}
+    }
+
+    function releaseScreenWakeLock() {
+      try {
+        if (medWakeLock) {
+          const lock = medWakeLock;
+          medWakeLock = null;
+          lock.release().catch(() => {});
+        }
+      } catch (e) {}
+    }
+
+    document.addEventListener("visibilitychange", () => {
+      if (document.visibilityState === "visible" && medRunning) {
+        requestScreenWakeLock();
+      }
+    });
+
+    function startMeditationSession() {
+      const proto = MEDITATION_PROTOCOLS.find(p => p.id === currentProtocolId) || MEDITATION_PROTOCOLS[0];
+      medRunning = true;
+      medRemainingSeconds = medDurationSeconds;
+      medCycleCount = 0;
+      medPhaseIndex = 0;
+      medPhaseElapsed = 0;
+      document.getElementById("med-cycle-count").textContent = "0";
+
+      document.getElementById("btn-med-toggle-label").textContent = "⏸ Pause Sanctuary Session";
+      requestScreenWakeLock();
+      playSingingBowlChime(432);
+      startAmbientSoundscape();
+      applyBreathPhaseVisuals(proto.phases[0]);
+
+      let lastTickTime = Date.now();
+      medIntervalId = setInterval(() => {
+        const now = Date.now();
+        const dt = Math.max(0, (now - lastTickTime) / 1000);
+        lastTickTime = now;
+
+        medRemainingSeconds -= dt;
+        medPhaseElapsed += dt;
+
+        let advanced = false;
+        while (medPhaseElapsed >= proto.phases[medPhaseIndex].duration && medRemainingSeconds > 0) {
+          medPhaseElapsed -= proto.phases[medPhaseIndex].duration;
+          medPhaseIndex = (medPhaseIndex + 1) % proto.phases.length;
+          if (medPhaseIndex === 0) {
+            medCycleCount += 1;
+            document.getElementById("med-cycle-count").textContent = String(medCycleCount);
+          }
+          advanced = true;
+        }
+
+        if (advanced && medRemainingSeconds > 0) {
+          applyBreathPhaseVisuals(proto.phases[medPhaseIndex]);
+          triggerHaptic(12);
+          playSingingBowlChime(medPhaseIndex === 0 ? 432 : 528);
+        }
+
+        const activePhase = proto.phases[medPhaseIndex];
+        const phaseRem = Math.max(0, activePhase.duration - medPhaseElapsed);
+        document.getElementById("orb-phase-timer").textContent = phaseRem.toFixed(1) + "s";
+        document.getElementById("med-total-remaining").textContent = formatMMSS(medRemainingSeconds);
+
+        if (medRemainingSeconds <= 0) {
+          stopMeditationSession(true);
+        }
+      }, 100);
+    }
+
+    function applyBreathPhaseVisuals(phase) {
+      const core = document.getElementById("orb-core");
+      const halo = document.getElementById("orb-halo");
+      const outer = document.getElementById("orb-outer");
+
+      document.getElementById("orb-phase-label").textContent = phase.label;
+      document.getElementById("med-guided-prompt").textContent = `"${phase.prompt}"`;
+
+      core.style.transition = `transform ${phase.duration}s ease-in-out`;
+      halo.style.transition = `transform ${phase.duration}s ease-in-out`;
+      outer.style.transition = `transform ${phase.duration}s ease-in-out`;
+
+      core.style.transform = `scale(${phase.scale})`;
+      halo.style.transform = `scale(${(phase.scale * 1.12).toFixed(2)})`;
+      outer.style.transform = `scale(${(phase.scale * 1.04).toFixed(2)})`;
+    }
+
+    function stopMeditationSession(completedFull) {
+      medRunning = false;
+      clearInterval(medIntervalId);
+      releaseScreenWakeLock();
+      stopAmbientSoundscape();
+
+      const core = document.getElementById("orb-core");
+      const halo = document.getElementById("orb-halo");
+      const outer = document.getElementById("orb-outer");
+      core.style.transition = "transform 0.5s ease";
+      halo.style.transition = "transform 0.5s ease";
+      outer.style.transition = "transform 0.5s ease";
+      core.style.transform = "scale(1)";
+      halo.style.transform = "scale(1)";
+      outer.style.transform = "scale(1)";
+
+      document.getElementById("btn-med-toggle-label").textContent = "▶ Begin Sanctuary Session";
+      document.getElementById("orb-phase-label").textContent = completedFull ? "Complete" : "Paused";
+
+      if (completedFull) {
+        const minsAdded = Math.max(1, Math.round(medDurationSeconds / 60));
+        appState.meditationMinutes += minsAdded;
+        saveState();
+        updateHeaderAndHistoryUI();
+        playSingingBowlChime(528);
+        showToast(`Completed ${minsAdded} min meditation in Dr. Soliman Sanctuary`);
+      }
+    }
+
+    /*************************************************************************
+     * 6. HISTORY TIMELINE, AFFECT ANALYTICS & DR. SOLIMAN SESSION REPORT
+     *************************************************************************/
+    function formatDateTime(ts) {
+      const d = new Date(ts);
+      return d.toLocaleDateString(undefined, { month: "short", day: "numeric" }) + " · " +
+             d.toLocaleTimeString(undefined, { hour: "2-digit", minute: "2-digit" });
+    }
+
+    function buildClinicalReportText() {
+      const patientName = appState.carePlan.patientName || "Patient";
+      const logs = appState.logs;
+      const total = logs.length;
+      const avgInt = total > 0
+        ? (logs.reduce((acc, l) => acc + Number(l.intensity || 0), 0) / total).toFixed(1)
+        : "N/A";
+
+      const counts = {};
+      logs.forEach(l => { counts[l.core] = (counts[l.core] || 0) + 1; });
+      const sortedCores = Object.entries(counts).sort((a, b) => b[1] - a[1]);
+      const topAffect = sortedCores.length ? `${sortedCores[0][0]} (${sortedCores[0][1]} entries)` : "None recorded";
+
+      const lines = [
+        "====================================================",
+        "DR. MINA SOLIMAN, MD — PSYCHIATRIC PATIENT SUMMARY",
+        "====================================================",
+        `Book / Emergency Contact: ${DR_SOLIMAN_WHATSAPP_URL}`,
+        `Patient Name: ${patientName}`,
+        `Next Scheduled Session: ${appState.carePlan.nextAppt || "Not specified"}`,
+        `Total Emotion Check-Ins: ${total}`,
+        `Mean SUDS Intensity (1-10): ${avgInt}`,
+        `Predominant Core Affect: ${topAffect}`,
+        `Guided Meditation Completed: ${appState.meditationMinutes} mins`,
+        "----------------------------------------------------",
+        "PATIENT EMOTION WHEEL LOGS:"
+      ];
+
+      if (logs.length === 0) {
+        lines.push("No patient entries logged yet.");
+      } else {
+        logs.slice(0, 15).forEach((l, i) => {
+          lines.push(
+            `${i + 1}. [${formatDateTime(l.timestamp)}] ${l.core} -> ${l.secondary} -> ${l.tertiary} (Intensity: ${l.intensity}/10)`
+          );
+          if (l.somatic && l.somatic.length) {
+            lines.push(`   Somatic: ${l.somatic.join(", ")}`);
+          }
+          if (l.triggers && l.triggers.length) {
+            lines.push(`   Triggers: ${l.triggers.join(", ")}`);
+          }
+          if (l.note) {
+            lines.push(`   Reflection: "${l.note}"`);
+          }
+        });
+      }
+
+      if (appState.carePlan.questions) {
+        lines.push("----------------------------------------------------");
+        lines.push(`TOPICS FOR DR. MINA SOLIMAN: ${appState.carePlan.questions}`);
+      }
+
+      return lines.join("\n");
+    }
+
+    function updateHeaderAndHistoryUI() {
+      const logs = appState.logs;
+      const total = logs.length;
+
+      const pName = (appState.carePlan.patientName || "").trim();
+      document.getElementById("patient-greeting").textContent = pName
+        ? `Welcome back, ${pName} — Dr. Mina Soliman's Sanctuary`
+        : "Welcome to Dr. Mina Soliman's Patient Sanctuary";
+
+      document.getElementById("header-stat-logs").textContent = `${total} Check-In${total === 1 ? "" : "s"}`;
+      document.getElementById("header-stat-med").textContent = `${appState.meditationMinutes} Min Meditated`;
+
+      document.getElementById("kpi-total-logs").textContent = String(total);
+      const avg = total > 0
+        ? (logs.reduce((s, x) => s + Number(x.intensity || 0), 0) / total).toFixed(1)
+        : "—";
+      document.getElementById("kpi-avg-intensity").textContent = avg !== "—" ? `${avg}/10` : "—";
+
+      const counts = {};
+      logs.forEach(l => { counts[l.core] = (counts[l.core] || 0) + 1; });
+      const sorted = Object.entries(counts).sort((a, b) => b[1] - a[1]);
+      document.getElementById("kpi-top-emotion").textContent = sorted.length ? sorted[0][0] : "—";
+      document.getElementById("kpi-meditation-mins").textContent = `${appState.meditationMinutes}m`;
+
+      const distContainer = document.getElementById("affect-distribution-bars");
+      distContainer.innerHTML = "";
+      EMOTION_WHEEL_DATA.forEach(core => {
+        const cCount = counts[core.name] || 0;
+        const pct = total > 0 ? Math.round((cCount / total) * 100) : 0;
+        const row = document.createElement("div");
+        row.style.marginBottom = "9px";
+        row.innerHTML = `
+          <div style="display:flex; justify-content:space-between; font-size:0.78rem; font-weight:600; margin-bottom:3px;">
+            <span style="display:inline-flex; align-items:center; gap:6px;">
+              <span class="emotion-dot" style="background:${core.color}; width:9px; height:9px;"></span>
+              ${core.name}
+            </span>
+            <span style="color:var(--text-secondary);">${cCount} (${pct}%)</span>
+          </div>
+          <div style="height:8px; background:var(--bg-secondary); border-radius:999px; overflow:hidden;">
+            <div style="width:${pct}%; height:100%; background:${core.color}; border-radius:999px; transition:width 0.3s ease;"></div>
+          </div>
+        `;
+        distContainer.appendChild(row);
+      });
+
+      document.getElementById("clinical-report-preview").textContent = buildClinicalReportText();
+
+      const filterRow = document.getElementById("history-filter-chips");
+      filterRow.innerHTML = "";
+      const filters = ["all", ...EMOTION_WHEEL_DATA.map(c => c.name)];
+      filters.forEach(f => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        const active = appState.historyFilter === f;
+        btn.className = "emotion-chip" + (active ? " active" : "");
+        if (active) btn.style.background = "var(--accent-primary)";
+        btn.textContent = f === "all" ? "All Emotions" : f;
+        btn.addEventListener("click", () => {
+          appState.historyFilter = f;
+          updateHeaderAndHistoryUI();
+        });
+        filterRow.appendChild(btn);
+      });
+
+      const listEl = document.getElementById("history-entries-list");
+      listEl.innerHTML = "";
+      const filtered = appState.historyFilter === "all"
+        ? logs
+        : logs.filter(l => l.core === appState.historyFilter);
+
+      if (filtered.length === 0) {
+        listEl.innerHTML = `<p style="font-size:0.84rem; color:var(--text-muted); text-align:center; padding:22px 10px;">${logs.length === 0 ? "No emotion entries logged yet. Use the Emotion Wheel tab to record your check-ins." : "No emotion check-ins match this filter."}</p>`;
+        return;
+      }
+
+      filtered.forEach(item => {
+        const card = document.createElement("div");
+        card.className = "log-entry-card";
+        const safeColor = sanitizeColorHex(item.color);
+        card.style.borderLeftColor = safeColor || "var(--accent-primary)";
+
+        const coHtml = (item.coEmotions && item.coEmotions.length)
+          ? item.coEmotions.map(c => `<span class="mini-tag">+ ${escapeHtml(c)}</span>`).join("")
+          : "";
+        const somHtml = (item.somatic && item.somatic.length)
+          ? item.somatic.map(s => `<span class="mini-tag">🫀 ${escapeHtml(s)}</span>`).join("")
+          : "";
+        const trigHtml = (item.triggers && item.triggers.length)
+          ? item.triggers.map(t => `<span class="mini-tag">⚡ ${escapeHtml(t)}</span>`).join("")
+          : "";
+
+        card.innerHTML = `
+          <div class="log-entry-top">
+            <div class="log-emotion-title">
+              <span class="emotion-dot" style="background:${safeColor};"></span>
+              <span>${escapeHtml(item.core)} → ${escapeHtml(item.secondary)} → <strong>${escapeHtml(item.tertiary)}</strong></span>
+              <span class="mini-tag" style="font-weight:700;">SUDS ${escapeHtml(item.intensity)}/10</span>
+            </div>
+            <div style="display:inline-flex; align-items:center; gap:8px;">
+              <span class="log-time">${escapeHtml(formatDateTime(item.timestamp))}</span>
+              <button type="button" class="delete-entry-btn" data-id="${escapeHtml(item.id)}" title="Delete this entry" style="background:none; border:none; color:var(--text-muted); cursor:pointer; font-size:0.82rem; padding:2px 5px;">✕</button>
+            </div>
+          </div>
+          <div class="log-meta-tags">${coHtml}${somHtml}${trigHtml}</div>
+          ${item.note ? `<div class="log-note">${escapeHtml(item.note)}</div>` : ""}
+        `;
+        card.querySelector(".delete-entry-btn").addEventListener("click", () => {
+          appState.logs = appState.logs.filter(x => x.id !== item.id);
+          saveState();
+          updateHeaderAndHistoryUI();
+          showToast("Entry removed");
+        });
+        listEl.appendChild(card);
+      });
+    }
+
+    /*************************************************************************
+     * 7. NAVIGATION & INITIALIZATION
+     *************************************************************************/
+    function switchTab(tabId) {
+      document.querySelectorAll(".tab-pane").forEach(p => {
+        p.classList.toggle("active", p.id === tabId);
+      });
+      document.querySelectorAll(".nav-item").forEach(btn => {
+        btn.classList.toggle("active", btn.getAttribute("data-tab") === tabId);
+      });
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function applyTheme() {
+      const isDark = appState.theme === "dark";
+      const metaTheme = document.getElementById("meta-theme-color") || document.querySelector('meta[name="theme-color"]');
+      if (isDark) {
+        document.documentElement.setAttribute("data-theme", "dark");
+        document.documentElement.style.colorScheme = "dark";
+        document.getElementById("theme-icon-label").textContent = "☀ Light";
+        if (metaTheme) metaTheme.setAttribute("content", "#101917");
+      } else {
+        document.documentElement.removeAttribute("data-theme");
+        document.documentElement.style.colorScheme = "light";
+        document.getElementById("theme-icon-label").textContent = "☾ Dark";
+        if (metaTheme) metaTheme.setAttribute("content", "#162B26");
+      }
+    }
+
+    function setupApplePWAManifest() {
+      try {
+        if (document.querySelector('link[rel="manifest"]')) return;
+        const iconLink = document.getElementById("apple-touch-icon-link") || document.querySelector('link[rel="icon"]');
+        const iconHref = iconLink ? iconLink.getAttribute("href") : "";
+        const manifest = {
+          name: "Dr. Mina Soliman — Emotion Wheel & Mind Sanctuary",
+          short_name: "Dr. Mina Soliman",
+          description: "Psychiatric Emotion Wheel Journal & Guided Meditation Sanctuary by Dr. Mina Soliman, MD.",
+          start_url: window.location.href,
+          display: "standalone",
+          background_color: "#162B26",
+          theme_color: "#162B26"
+        };
+        if (iconHref) {
+          const iconType = iconHref.includes("svg") ? "image/svg+xml" : "image/png";
+          manifest.icons = [{ src: iconHref, sizes: iconHref.includes("svg") ? "any" : "180x180", type: iconType }];
+        }
+        const mLink = document.createElement("link");
+        mLink.rel = "manifest";
+        mLink.href = "data:application/manifest+json;charset=utf-8," + encodeURIComponent(JSON.stringify(manifest));
+        document.head.appendChild(mLink);
+      } catch (e) {}
+    }
+
+    function downloadStandaloneWebApp() {
+      try {
+        const clone = document.documentElement.cloneNode(true);
+        clone.removeAttribute("data-theme");
+        clone.style.colorScheme = "";
+        clone.querySelectorAll("base").forEach(b => b.remove());
+        clone.querySelectorAll('link[rel="manifest"]').forEach(l => l.remove());
+        clone.querySelectorAll('script[type="text/htmlpreview"]').forEach(s => s.removeAttribute("type"));
+        clone.querySelectorAll("script:not([id])").forEach(s => s.remove());
+        [
+          "#emotion-wheel-svg", "#tier1-chips", "#tier2-chips", "#tier3-chips",
+          "#co-emotion-tags", "#somatic-tags", "#trigger-tags",
+          "#meditation-program-list", "#affect-distribution-bars",
+          "#history-filter-chips", "#history-entries-list"
+        ].forEach(sel => {
+          const node = clone.querySelector(sel);
+          if (node) node.innerHTML = "";
+        });
+        const modal = clone.querySelector("#ios-install-modal");
+        if (modal) modal.classList.remove("open");
+        const htmlContent = "<!DOCTYPE html>\n" + clone.outerHTML;
+        const blob = new Blob([htmlContent], { type: "text/html;charset=utf-8" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "DrMinaSoliman-iPhone.html";
+        document.body.appendChild(a);
+        a.click();
+        setTimeout(() => {
+          document.body.removeChild(a);
+          URL.revokeObjectURL(url);
+        }, 500);
+        showToast("Saved offline copy: DrMinaSoliman-iPhone.html");
+      } catch (e) {
+        showToast("Use Safari Share -> Save to Files");
+      }
+    }
+
+    let __sanctuaryBooted = false;
+    function bootSanctuaryApp() {
+      if (__sanctuaryBooted) return;
+      __sanctuaryBooted = true;
+
+      setupApplePWAManifest();
+      loadState();
+      applyTheme();
+      updateWheelSelectionUI();
+      renderFormTagSelectors();
+      renderMeditationProtocolList();
+      updateHeaderAndHistoryUI();
+      try {
+        if (navigator.storage && typeof navigator.storage.persist === "function") {
+          navigator.storage.persist().catch(() => {});
+        }
+      } catch (e) {}
+
+      // Wire all WhatsApp links for native Android, iOS & Web compatibility
+      document.querySelectorAll("[data-wa-url]").forEach(el => {
+        el.addEventListener("click", e => {
+          const url = el.getAttribute("data-wa-url");
+          if (window.AndroidBridge && typeof window.AndroidBridge.openExternalUrl === "function") {
+            e.preventDefault();
+            window.AndroidBridge.openExternalUrl(url);
+          } else if (postToIOSBridge({ action: "openExternalUrl", url })) {
+            e.preventDefault();
+          }
+        });
+      });
+
+      // Apple iPhone / iPad / Mac Install Modal & Smart Banner
+      const iosModal = document.getElementById("ios-install-modal");
+      const appleBanner = document.getElementById("apple-install-banner");
+      const openIosModal = () => iosModal.classList.add("open");
+      const closeIosModal = () => iosModal.classList.remove("open");
+
+      const isStandaloneApple =
+        window.navigator.standalone === true ||
+        (window.matchMedia && window.matchMedia("(display-mode: standalone)").matches);
+      let bannerDismissed = false;
+      try {
+        bannerDismissed = localStorage.getItem("dr_mina_apple_banner_dismissed") === "1";
+      } catch (e) {}
+
+      if (appleBanner && (isStandaloneApple || bannerDismissed)) {
+        appleBanner.classList.add("hidden");
+      }
+
+      document.getElementById("btn-ios-install").addEventListener("click", openIosModal);
+      const downloadBtn = document.getElementById("btn-download-html");
+      if (downloadBtn) downloadBtn.addEventListener("click", downloadStandaloneWebApp);
+      const bannerHowBtn = document.getElementById("btn-banner-ios-how");
+      if (bannerHowBtn) bannerHowBtn.addEventListener("click", openIosModal);
+      const bannerDismissBtn = document.getElementById("btn-banner-ios-dismiss");
+      if (bannerDismissBtn && appleBanner) {
+        bannerDismissBtn.addEventListener("click", () => {
+          appleBanner.classList.add("hidden");
+          try {
+            localStorage.setItem("dr_mina_apple_banner_dismissed", "1");
+          } catch (e) {}
+        });
+      }
+      document.getElementById("btn-close-ios-modal").addEventListener("click", closeIosModal);
+      document.getElementById("btn-done-ios-modal").addEventListener("click", closeIosModal);
+      iosModal.addEventListener("click", e => {
+        if (e.target === iosModal) closeIosModal();
+      });
+      document.addEventListener("keydown", e => {
+        if (e.key === "Escape" && iosModal.classList.contains("open")) {
+          closeIosModal();
+        }
+      });
+
+      // Unlock WebKit AudioContext synchronously on first iOS touch or pointer gesture
+      const unlockIOSAudio = () => {
+        try {
+          if (!audioCtx) {
+            const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+            if (AudioContextClass) audioCtx = new AudioContextClass();
+          }
+          if (audioCtx) {
+            if (audioCtx.state === "suspended") {
+              audioCtx.resume().catch(() => {});
+            }
+            const buf = audioCtx.createBuffer(1, 1, 22050);
+            const src = audioCtx.createBufferSource();
+            src.buffer = buf;
+            src.connect(audioCtx.destination);
+            src.start(0);
+          }
+        } catch (e) {}
+        document.removeEventListener("touchstart", unlockIOSAudio);
+        document.removeEventListener("pointerdown", unlockIOSAudio);
+      };
+      document.addEventListener("touchstart", unlockIOSAudio, { passive: true });
+      document.addEventListener("pointerdown", unlockIOSAudio, { passive: true });
+
+      // Register Offline Service Worker only when hosted directly over HTTP/HTTPS (skip htmlpreview/file)
+      const manifestEl = document.querySelector('link[rel="manifest"]');
+      const manifestHref = manifestEl ? (manifestEl.getAttribute("href") || "") : "";
+      if (
+        "serviceWorker" in navigator &&
+        manifestHref === "manifest.json" &&
+        !location.hostname.endsWith("htmlpreview.github.io") &&
+        (location.protocol === "https:" || location.hostname === "localhost")
+      ) {
+        navigator.serviceWorker.register("sw.js").catch(() => {});
+      }
+
+      document.getElementById("plan-patient-name").value = appState.carePlan.patientName || "";
+      document.getElementById("plan-next-appt").value = appState.carePlan.nextAppt || "";
+      document.getElementById("plan-coping").value = appState.carePlan.coping || "";
+      document.getElementById("plan-questions").value = appState.carePlan.questions || "";
+
+      document.querySelectorAll(".nav-item").forEach(btn => {
+        btn.addEventListener("click", () => {
+          triggerHaptic(12);
+          switchTab(btn.getAttribute("data-tab"));
+        });
+      });
+
+      document.getElementById("btn-quick-report").addEventListener("click", () => {
+        switchTab("tab-history");
+      });
+
+      document.getElementById("btn-theme-toggle").addEventListener("click", () => {
+        appState.theme = appState.theme === "dark" ? "light" : "dark";
+        applyTheme();
+        saveState();
+      });
+
+      document.getElementById("btn-reset-wheel").addEventListener("click", () => {
+        appState.selectedCoreIdx = 1;
+        appState.selectedSecIdx = 0;
+        appState.selectedTertIdx = 0;
+        updateWheelSelectionUI();
+      });
+
+      const intSlider = document.getElementById("input-intensity");
+      intSlider.addEventListener("input", e => {
+        const val = e.target.value;
+        appState.intensity = Number(val);
+        document.getElementById("intensity-val-display").textContent = `${val} / 10`;
+        document.getElementById("intensity-text-anchor").textContent = getIntensityDescription(val);
+      });
+
+      document.querySelectorAll(".prompt-pill").forEach(pill => {
+        pill.addEventListener("click", () => {
+          const area = document.getElementById("input-journal-note");
+          const prefix = area.value ? area.value + "\n" : "";
+          area.value = prefix + pill.getAttribute("data-prompt");
+          area.focus();
+        });
+      });
+
+      document.getElementById("btn-save-emotion").addEventListener("click", handleSaveEmotionLog);
+
+      document.querySelectorAll(".dur-pill").forEach(pill => {
+        pill.addEventListener("click", () => {
+          if (medRunning) stopMeditationSession(false);
+          document.querySelectorAll(".dur-pill").forEach(p => p.classList.remove("active"));
+          pill.classList.add("active");
+          medDurationSeconds = Number(pill.getAttribute("data-seconds"));
+          medRemainingSeconds = medDurationSeconds;
+          document.getElementById("orb-phase-timer").textContent = formatMMSS(medDurationSeconds);
+          document.getElementById("med-total-remaining").textContent = formatMMSS(medDurationSeconds);
+        });
+      });
+
+      document.getElementById("btn-med-toggle").addEventListener("click", toggleMeditationSession);
+      document.getElementById("btn-med-chime-test").addEventListener("click", () => {
+        playSingingBowlChime(432);
+        showToast("🔔 Singing Bowl Chime (432 Hz)");
+      });
+      document.getElementById("btn-med-complete-log").addEventListener("click", () => {
+        const mins = Math.max(1, Math.round(medDurationSeconds / 60));
+        appState.meditationMinutes += mins;
+        saveState();
+        updateHeaderAndHistoryUI();
+        playSingingBowlChime(528);
+        showToast(`Logged +${mins} min meditation to your clinical record`);
+      });
+
+      ["mix-bowl", "mix-pad", "mix-rain"].forEach(id => {
+        document.getElementById(id).addEventListener("input", updateAmbientMixerGains);
+      });
+
+      function fallbackCopyText(text) {
+        try {
+          const ta = document.createElement("textarea");
+          ta.value = text;
+          ta.setAttribute("readonly", "");
+          ta.style.position = "fixed";
+          ta.style.top = "-9999px";
+          ta.style.left = "-9999px";
+          ta.style.fontSize = "16px";
+          document.body.appendChild(ta);
+          ta.focus();
+          ta.select();
+          ta.setSelectionRange(0, text.length);
+          const ok = document.execCommand("copy");
+          document.body.removeChild(ta);
+          return ok;
+        } catch (e) {
+          return false;
+        }
+      }
+
+      function copyTextSafe(text, successMsg) {
+        if (navigator.clipboard && typeof navigator.clipboard.writeText === "function" && window.isSecureContext) {
+          navigator.clipboard.writeText(text).then(() => {
+            showToast(successMsg);
+          }).catch(() => {
+            showToast(fallbackCopyText(text) ? successMsg : "Select summary text manually to copy");
+          });
+        } else {
+          showToast(fallbackCopyText(text) ? successMsg : "Select summary text manually to copy");
+        }
+      }
+
+      // Send Summary directly to Dr. Mina Soliman on WhatsApp
+      document.getElementById("btn-whatsapp-report").addEventListener("click", () => {
+        const txt = buildClinicalReportText();
+        const waUrl = `${DR_SOLIMAN_WHATSAPP_URL}?text=${encodeURIComponent(txt)}`;
+        openExternalLink(waUrl);
+      });
+
+      document.getElementById("btn-share-native").addEventListener("click", () => {
+        const txt = buildClinicalReportText();
+        if (window.AndroidBridge && typeof window.AndroidBridge.shareReport === "function") {
+          window.AndroidBridge.shareReport("Dr. Mina Soliman — Patient Emotion & Meditation Summary", txt);
+        } else if (postToIOSBridge({ action: "shareReport", title: "Dr. Mina Soliman — Patient Emotion & Meditation Summary", text: txt })) {
+          return;
+        } else if (navigator.share) {
+          navigator.share({
+            title: "Dr. Mina Soliman — Patient Summary",
+            text: txt
+          }).catch(err => {
+            if (!err || err.name !== "AbortError") {
+              copyTextSafe(txt, "Clinical summary copied to clipboard for Dr. Mina Soliman");
+            }
+          });
+        } else {
+          copyTextSafe(txt, "Clinical summary copied to clipboard for Dr. Mina Soliman");
+        }
+      });
+
+      document.getElementById("btn-copy-report").addEventListener("click", () => {
+        const txt = buildClinicalReportText();
+        copyTextSafe(txt, "Copied clinical summary to clipboard");
+      });
+
+      const clearLogsBtn = document.getElementById("btn-clear-logs");
+      let clearLogsTimer = null;
+      clearLogsBtn.addEventListener("click", () => {
+        if (clearLogsBtn.dataset.armed !== "1") {
+          clearLogsBtn.dataset.armed = "1";
+          clearLogsBtn.textContent = "Confirm Clear?";
+          clearLogsBtn.style.borderColor = "var(--emergency-red)";
+          clearLogsBtn.style.color = "var(--emergency-red)";
+          showToast("Tap again within 4s to confirm clearing logs");
+          clearTimeout(clearLogsTimer);
+          clearLogsTimer = setTimeout(() => {
+            clearLogsBtn.dataset.armed = "0";
+            clearLogsBtn.textContent = "Clear My Logs";
+            clearLogsBtn.style.borderColor = "";
+            clearLogsBtn.style.color = "";
+          }, 4000);
+          return;
+        }
+        clearTimeout(clearLogsTimer);
+        clearLogsBtn.dataset.armed = "0";
+        clearLogsBtn.textContent = "Clear My Logs";
+        clearLogsBtn.style.borderColor = "";
+        clearLogsBtn.style.color = "";
+        appState.logs = [];
+        saveState();
+        updateHeaderAndHistoryUI();
+        showToast("Cleared emotion logs");
+      });
+
+      document.querySelectorAll(".grounding-step").forEach(step => {
+        step.addEventListener("click", () => {
+          triggerHaptic(15);
+          step.classList.toggle("done");
+        });
+      });
+
+      document.getElementById("btn-reset-grounding").addEventListener("click", () => {
+        document.querySelectorAll(".grounding-step").forEach(s => s.classList.remove("done"));
+      });
+
+      document.getElementById("btn-save-careplan").addEventListener("click", () => {
+        appState.carePlan = {
+          patientName: document.getElementById("plan-patient-name").value.trim(),
+          nextAppt: document.getElementById("plan-next-appt").value.trim(),
+          coping: document.getElementById("plan-coping").value.trim(),
+          questions: document.getElementById("plan-questions").value.trim()
+        };
+        saveState();
+        updateHeaderAndHistoryUI();
+        showToast("Personal Care Plan saved for Dr. Mina Soliman sessions");
+      });
+
+      const exportBackupBtn = document.getElementById("btn-export-backup");
+      const importBackupBtn = document.getElementById("btn-import-backup");
+      const importBackupInput = document.getElementById("input-import-backup");
+
+      if (exportBackupBtn) {
+        exportBackupBtn.addEventListener("click", () => {
+          try {
+            const payload = {
+              app: "Dr. Mina Soliman — Emotion Wheel & Mind Sanctuary",
+              version: 2,
+              exportedAt: new Date().toISOString(),
+              meditationMinutes: Number(appState.meditationMinutes || 0),
+              carePlan: appState.carePlan || {},
+              logs: Array.isArray(appState.logs) ? appState.logs : []
+            };
+            const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json;charset=utf-8" });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            const dateTag = new Date().toISOString().slice(0, 10);
+            a.download = `DrMinaSoliman-Backup-${dateTag}.json`;
+            document.body.appendChild(a);
+            a.click();
+            setTimeout(() => {
+              document.body.removeChild(a);
+              URL.revokeObjectURL(url);
+            }, 500);
+            showToast("Backup exported — save to iCloud Drive or Files");
+          } catch (e) {
+            showToast("Unable to export backup on this browser");
+          }
+        });
+      }
+
+      if (importBackupBtn && importBackupInput) {
+        importBackupBtn.addEventListener("click", () => {
+          importBackupInput.value = "";
+          importBackupInput.click();
+        });
+
+        importBackupInput.addEventListener("change", e => {
+          const file = e.target.files && e.target.files[0];
+          if (!file) return;
+          const reader = new FileReader();
+          reader.onload = () => {
+            try {
+              const parsed = JSON.parse(String(reader.result || ""));
+              if (!parsed || typeof parsed !== "object") {
+                throw new Error("Invalid backup object");
+              }
+              const importedLogs = Array.isArray(parsed.logs)
+                ? parsed.logs.map(sanitizeLogEntry).filter(Boolean)
+                : [];
+              const existingIds = new Set(appState.logs.map(l => l.id));
+              importedLogs.forEach(entry => {
+                if (!existingIds.has(entry.id)) {
+                  appState.logs.push(entry);
+                  existingIds.add(entry.id);
+                }
+              });
+              appState.logs.sort((a, b) => b.timestamp - a.timestamp);
+
+              if (Number.isFinite(Number(parsed.meditationMinutes))) {
+                appState.meditationMinutes = Math.max(
+                  Number(appState.meditationMinutes || 0),
+                  Math.max(0, Math.round(Number(parsed.meditationMinutes)))
+                );
+              }
+              if (parsed.carePlan && typeof parsed.carePlan === "object") {
+                appState.carePlan = {
+                  patientName: String(parsed.carePlan.patientName || appState.carePlan.patientName || "").trim(),
+                  nextAppt: String(parsed.carePlan.nextAppt || appState.carePlan.nextAppt || "").trim(),
+                  coping: String(parsed.carePlan.coping || appState.carePlan.coping || "").trim(),
+                  questions: String(parsed.carePlan.questions || appState.carePlan.questions || "").trim()
+                };
+                document.getElementById("plan-patient-name").value = appState.carePlan.patientName;
+                document.getElementById("plan-next-appt").value = appState.carePlan.nextAppt;
+                document.getElementById("plan-coping").value = appState.carePlan.coping;
+                document.getElementById("plan-questions").value = appState.carePlan.questions;
+              }
+              saveState();
+              updateHeaderAndHistoryUI();
+              showToast(`Restored ${importedLogs.length} patient log entr${importedLogs.length === 1 ? "y" : "ies"}`);
+            } catch (err) {
+              showToast("Invalid backup file — please choose a DrMinaSoliman JSON backup");
+            }
+          };
+          reader.readAsText(file);
+        });
+      }
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", bootSanctuaryApp);
+    } else {
+      bootSanctuaryApp();
+    }
+  </script>
+</body>
+</html>
